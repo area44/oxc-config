@@ -27,8 +27,9 @@
     "access": "public"
   },
   "scripts": {
-    "lint": "oxlint . || true",
-    "format": "oxfmt -c .oxfmtrc.json . --check"
+    "build": "tsx ../../scripts/compile-config.ts oxfmt.config.ts .oxfmtrc.json https://raw.githubusercontent.com/oxc-project/oxc/main/crates/oxfmt/configuration_schema.json && oxfmt -c .oxfmtrc.json .oxfmtrc.json",
+    "lint": "pnpm build && oxlint . || true",
+    "format": "pnpm build && oxfmt -c .oxfmtrc.json . --check"
   },
   "peerDependencies": {
     "oxfmt": ">=0.0.0"

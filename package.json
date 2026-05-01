@@ -2,6 +2,7 @@
   "name": "@area44/oxc-config",
   "private": true,
   "scripts": {
+    "build": "pnpm -r run build",
     "lint": "pnpm -r run lint",
     "format": "pnpm -r run format"
   },
