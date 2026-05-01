@@ -1,0 +1,28 @@
+{
+  "name": "@area44/oxfmt-config",
+  "version": "1.0.0",
+  "description": "Shareable oxfmt configuration",
+  "keywords": [
+    "config",
+    "formatter",
+    "oxfmt"
+  ],
+  "license": "MIT",
+  "author": "area44",
+  "files": [
+    ".oxfmtrc.json",
+    "README.md"
+  ],
+  "type": "module",
+  "main": "./.oxfmtrc.json",
+  "publishConfig": {
+    "access": "public"
+  },
+  "scripts": {
+    "lint": "oxlint . || true",
+    "format": "oxfmt . --check"
+  },
+  "peerDependencies": {
+    "oxfmt": ">=0.0.0"
+  }
+}
