@@ -1,0 +1,28 @@
+{
+  "name": "@area44/oxlint-config",
+  "version": "1.0.0",
+  "description": "Shareable oxlint configuration",
+  "keywords": [
+    "config",
+    "lint",
+    "oxlint"
+  ],
+  "license": "MIT",
+  "author": "area44",
+  "files": [
+    ".oxlintrc.json",
+    "README.md"
+  ],
+  "type": "module",
+  "main": "./.oxlintrc.json",
+  "publishConfig": {
+    "access": "public"
+  },
+  "scripts": {
+    "lint": "oxlint .",
+    "format": "oxfmt . --check"
+  },
+  "peerDependencies": {
+    "oxlint": ">=1.0.0"
+  }
+}
