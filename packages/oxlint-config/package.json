@@ -1,6 +1,6 @@
 {
   "name": "@area44/oxlint-config",
-  "version": "1.0.0",
+  "version": "0.1.0",
   "description": "Shareable oxlint configuration",
   "keywords": [
     "config",
@@ -27,9 +27,9 @@
     "access": "public"
   },
   "scripts": {
-    "build": "node ../../scripts/compile-config.ts oxlint.config.ts .oxlintrc.json ../../node_modules/oxlint/configuration_schema.json && oxfmt -c .oxlintrc.json .oxlintrc.json",
-    "lint": "pnpm build && oxlint -c .oxlintrc.json . || true",
-    "format": "pnpm build && oxfmt -c .oxlintrc.json . --check"
+    "build": "node ../../scripts/compile-config.ts oxlint.config.ts .oxlintrc.json ../../node_modules/oxlint/configuration_schema.json",
+    "lint": "oxlint -c .oxlintrc.json",
+    "format": "oxfmt -c .oxfmtrc.json --check"
   },
   "peerDependencies": {
     "oxlint": ">=1.0.0"
