@@ -1,7 +1,9 @@
 {
   "name": "@area44/oxc-config",
   "private": true,
+  "type": "module",
   "scripts": {
+    "build": "pnpm -r run build",
     "lint": "pnpm -r run lint",
     "format": "pnpm -r run format"
   },
@@ -10,11 +12,10 @@
     "oxlint": "^1.62.0"
   },
   "engines": {
-    "node": ">=20"
+    "node": ">=23.0.0"
   },
   "packageManager": "pnpm@11.0.3",
   "devDependencies": {
-    "tsx": "^4.21.0",
     "typescript": "^6.0.3"
   }
 }
