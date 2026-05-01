@@ -27,7 +27,7 @@
     "access": "public"
   },
   "scripts": {
-    "build": "node --experimental-strip-types ../../scripts/compile-config.ts oxfmt.config.ts .oxfmtrc.json https://raw.githubusercontent.com/oxc-project/oxc/main/crates/oxfmt/configuration_schema.json && oxfmt -c .oxfmtrc.json .oxfmtrc.json",
+    "build": "node --experimental-strip-types ../../scripts/compile-config.ts oxfmt.config.ts .oxfmtrc.json ../../node_modules/oxfmt/configuration_schema.json && oxfmt -c .oxfmtrc.json .oxfmtrc.json",
     "lint": "pnpm build && oxlint . || true",
     "format": "pnpm build && oxfmt -c .oxfmtrc.json . --check"
   },
