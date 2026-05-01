@@ -11,16 +11,21 @@
   "author": "area44",
   "files": [
     ".oxlintrc.json",
+    "oxlint.config.ts",
     "README.md"
   ],
   "type": "module",
   "main": "./.oxlintrc.json",
+  "exports": {
+    ".": "./.oxlintrc.json",
+    "./config": "./oxlint.config.ts"
+  },
   "publishConfig": {
     "access": "public"
   },
   "scripts": {
-    "lint": "oxlint . || true",
-    "format": "oxfmt . --check"
+    "lint": "oxlint -c .oxlintrc.json . || true",
+    "format": "oxfmt -c .oxlintrc.json . --check"
   },
   "peerDependencies": {
     "oxlint": ">=1.0.0"

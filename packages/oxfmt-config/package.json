@@ -11,16 +11,21 @@
   "author": "area44",
   "files": [
     ".oxfmtrc.json",
+    "oxfmt.config.ts",
     "README.md"
   ],
   "type": "module",
   "main": "./.oxfmtrc.json",
+  "exports": {
+    ".": "./.oxfmtrc.json",
+    "./config": "./oxfmt.config.ts"
+  },
   "publishConfig": {
     "access": "public"
   },
   "scripts": {
     "lint": "oxlint . || true",
-    "format": "oxfmt . --check"
+    "format": "oxfmt -c .oxfmtrc.json . --check"
   },
   "peerDependencies": {
     "oxfmt": ">=0.0.0"
