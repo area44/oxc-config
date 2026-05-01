@@ -27,9 +27,9 @@
     "access": "public"
   },
   "scripts": {
-    "build": "node ../../scripts/compile-config.ts oxfmt.config.ts .oxfmtrc.json ../../node_modules/oxfmt/configuration_schema.json && oxfmt -c .oxfmtrc.json .oxfmtrc.json",
-    "lint": "oxlint . || true",
-    "format": "oxfmt -c .oxfmtrc.json . --check"
+    "build": "node ../../scripts/compile-config.ts oxfmt.config.ts .oxfmtrc.json ../../node_modules/oxfmt/configuration_schema.json",
+    "lint": "oxlint",
+    "format": "oxfmt -c .oxfmtrc.json --check"
   },
   "peerDependencies": {
     "oxfmt": ">=0.0.0"
