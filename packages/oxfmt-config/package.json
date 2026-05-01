@@ -28,7 +28,7 @@
   },
   "scripts": {
     "build": "node ../../scripts/compile-config.ts oxfmt.config.ts .oxfmtrc.json ../../node_modules/oxfmt/configuration_schema.json",
-    "lint": "oxlint",
+    "lint": "oxlint -c .oxlintrc.json",
     "format": "oxfmt -c .oxfmtrc.json --check"
   },
   "peerDependencies": {
