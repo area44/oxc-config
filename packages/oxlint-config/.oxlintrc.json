@@ -4,5 +4,12 @@
   "rules": {
     "eqeqeq": "error",
     "no-unused-vars": "warn"
-  }
+  },
+  "ignorePatterns": [
+    "**/node_modules/**",
+    "**/dist/**",
+    "**/.next/**",
+    "**/.nuxt/**",
+    "**/.svelte-kit/**"
+  ]
 }
