@@ -25,7 +25,7 @@ In your `.oxlintrc.json`:
 In your `oxlint.config.ts`:
 
 ```typescript
-import oxlintConfig from "@area44/oxlint-config/config";
+import oxlintConfig from "@area44/oxlint-config";
 import { defineConfig } from "oxlint";
 
 export default defineConfig({

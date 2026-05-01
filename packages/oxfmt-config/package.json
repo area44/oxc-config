@@ -17,8 +17,11 @@
   "type": "module",
   "main": "./.oxfmtrc.json",
   "exports": {
-    ".": "./.oxfmtrc.json",
-    "./config": "./oxfmt.config.ts"
+    ".": {
+      "types": "./oxfmt.config.ts",
+      "import": "./oxfmt.config.ts",
+      "default": "./.oxfmtrc.json"
+    }
   },
   "publishConfig": {
     "access": "public"

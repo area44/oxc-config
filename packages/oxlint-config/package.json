@@ -17,8 +17,11 @@
   "type": "module",
   "main": "./.oxlintrc.json",
   "exports": {
-    ".": "./.oxlintrc.json",
-    "./config": "./oxlint.config.ts"
+    ".": {
+      "types": "./oxlint.config.ts",
+      "import": "./oxlint.config.ts",
+      "default": "./.oxlintrc.json"
+    }
   },
   "publishConfig": {
     "access": "public"
