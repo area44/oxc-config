@@ -1,8 +1,0 @@
-{
-  "extends": ["./typescript.json"],
-  "plugins": ["react"],
-  "rules": {
-    "react/jsx-key": "error",
-    "react/self-closing-comp": "warn"
-  }
-}

@@ -11,6 +11,7 @@
   "author": "area44",
   "files": [
     ".oxfmtrc.json",
+    ".oxfmtignore",
     "README.md"
   ],
   "type": "module",
