@@ -28,8 +28,8 @@
   },
   "scripts": {
     "build": "node ../../scripts/compile-config.ts oxlint.config.ts .oxlintrc.json ../../node_modules/oxlint/configuration_schema.json && oxfmt -c .oxlintrc.json .oxlintrc.json",
-    "lint": "pnpm build && oxlint -c .oxlintrc.json . || true",
-    "format": "pnpm build && oxfmt -c .oxlintrc.json . --check"
+    "lint": "oxlint -c .oxlintrc.json . || true",
+    "format": "oxfmt -c .oxlintrc.json . --check"
   },
   "peerDependencies": {
     "oxlint": ">=1.0.0"
