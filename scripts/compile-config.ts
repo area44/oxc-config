@@ -6,7 +6,7 @@ async function main() {
   const [,, source, target, schema] = process.argv;
 
   if (!source || !target) {
-    console.error('Usage: node compile-config.ts <source.ts> <target.json> [schema-url]');
+    console.error('Usage: tsx compile-config.ts <source.ts> <target.json> [schema-url]');
     process.exit(1);
   }
 

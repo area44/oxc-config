@@ -1,0 +1,20 @@
+{
+  "$schema": "../../node_modules/oxlint/configuration_schema.json",
+  "plugins": [
+    "typescript",
+    "import",
+    "unicorn",
+    "react"
+  ],
+  "rules": {
+    "eqeqeq": "error",
+    "no-unused-vars": "warn"
+  },
+  "ignorePatterns": [
+    "**/node_modules/**",
+    "**/dist/**",
+    "**/.next/**",
+    "**/.nuxt/**",
+    "**/.svelte-kit/**"
+  ]
+}
