@@ -1,5 +1,5 @@
 {
-  "name": "oxc-config",
+  "name": "@area44/oxc-config",
   "private": true,
   "scripts": {
     "lint": "pnpm -r run lint",
