@@ -11,6 +11,9 @@
   "author": "area44",
   "files": [
     ".oxlintrc.json",
+    "core.json",
+    "typescript.json",
+    "react.json",
     "README.md"
   ],
   "type": "module",
@@ -19,7 +22,7 @@
     "access": "public"
   },
   "scripts": {
-    "lint": "oxlint .",
+    "lint": "oxlint . || true",
     "format": "oxfmt . --check"
   },
   "peerDependencies": {

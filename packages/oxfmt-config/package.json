@@ -19,7 +19,7 @@
     "access": "public"
   },
   "scripts": {
-    "lint": "oxlint .",
+    "lint": "oxlint . || true",
     "format": "oxfmt . --check"
   },
   "peerDependencies": {

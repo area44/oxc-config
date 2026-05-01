@@ -1,8 +1,4 @@
 {
   "$schema": "https://raw.githubusercontent.com/oxc-project/oxc/main/crates/oxlint/configuration_schema.json",
-  "plugins": ["typescript", "import", "unicorn", "react"],
-  "rules": {
-    "eqeqeq": "error",
-    "no-unused-vars": "warn"
-  }
+  "extends": ["./core.json"]
 }

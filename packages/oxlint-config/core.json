@@ -1,0 +1,8 @@
+{
+  "plugins": ["import", "unicorn"],
+  "rules": {
+    "eqeqeq": "error",
+    "no-unused-vars": "warn",
+    "unicorn/filename-case": "off"
+  }
+}
