@@ -1,6 +1,6 @@
 {
   "name": "@area44/oxfmt-config",
-  "version": "1.0.0",
+  "version": "0.1.0",
   "description": "Shareable oxfmt configuration",
   "keywords": [
     "config",
