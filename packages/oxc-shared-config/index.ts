@@ -22,11 +22,15 @@ export const ignorePatterns = [
   "**/.parcel-cache",
   "**/.vite",
   "**/.astro",
+  "**/.github",
   "**/_astro",
+  "**/public",
   "**/public/build",
   "**/storybook-static",
 
   // ── Generated code ────────────────────────────────────────────────
+  "*.min.*",
+  "*.map",
   "**/_generated",
   "**/*.gen.*",
   "**/*.generated.*",

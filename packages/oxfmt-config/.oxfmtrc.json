@@ -6,6 +6,17 @@
   "trailingComma": "all",
   "tabWidth": 2,
   "useTabs": false,
+  "sortImports": {
+    "groups": [
+      "type-import",
+      ["value-builtin", "value-external"],
+      "type-internal",
+      "value-internal",
+      ["type-parent", "type-sibling", "type-index"],
+      ["value-parent", "value-sibling", "value-index"],
+      "unknown"
+    ]
+  },
   "ignorePatterns": [
     "**/dist",
     "**/build",
@@ -25,9 +36,13 @@
     "**/.parcel-cache",
     "**/.vite",
     "**/.astro",
+    "**/.github",
     "**/_astro",
+    "**/public",
     "**/public/build",
     "**/storybook-static",
+    "*.min.*",
+    "*.map",
     "**/_generated",
     "**/*.gen.*",
     "**/*.generated.*",
