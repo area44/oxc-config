@@ -8,10 +8,10 @@ import { resolve, isAbsolute } from 'node:path';
 import { pathToFileURL } from 'node:url';
 
 async function main() {
-  const [,, source, target, schema] = process.argv;
+  const [,, source, target, schema, jsTarget] = process.argv;
 
   if (!source || !target) {
-    console.error('Usage: node compile-config.ts <source.ts> <target.json> [schema-url]');
+    console.error('Usage: node compile-config.ts <source.ts> <target.json> [schema-url] [target.js]');
     process.exit(1);
   }
 
@@ -22,7 +22,8 @@ async function main() {
    * pathToFileURL is used to ensure compatibility with Windows for dynamic imports.
    * Node.js requires file:// URLs for importing local modules in ESM.
    */
-  const { default: config } = await import(pathToFileURL(sourcePath).href);
+  const module = await import(pathToFileURL(sourcePath).href);
+  const config = module.default;
 
   const output = {
     ...(schema ? { "$schema": schema } : {}),
@@ -31,6 +32,24 @@ async function main() {
 
   writeFileSync(targetPath, JSON.stringify(output, null, 2) + '\n');
   console.log(`Compiled ${source} to ${target}`);
+
+  if (jsTarget) {
+    const jsTargetPath = isAbsolute(jsTarget) ? jsTarget : resolve(process.cwd(), jsTarget);
+    let jsOutput = '';
+
+    // Export all named exports
+    for (const [key, value] of Object.entries(module)) {
+      if (key !== 'default') {
+        jsOutput += `export const ${key} = ${JSON.stringify(value, null, 2)};\n`;
+      }
+    }
+
+    // Export default export
+    jsOutput += `export default ${JSON.stringify(config, null, 2)};\n`;
+
+    writeFileSync(jsTargetPath, jsOutput);
+    console.log(`Compiled ${source} to ${jsTarget}`);
+  }
 }
 
 main().catch(err => {

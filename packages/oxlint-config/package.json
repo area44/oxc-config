@@ -12,6 +12,7 @@
   "files": [
     ".oxlintrc.json",
     "oxlint.config.ts",
+    "oxlint.config.js",
     "README.md"
   ],
   "type": "module",
@@ -19,7 +20,7 @@
   "exports": {
     ".": {
       "types": "./oxlint.config.ts",
-      "import": "./oxlint.config.ts",
+      "import": "./oxlint.config.js",
       "default": "./.oxlintrc.json"
     }
   },
@@ -27,11 +28,11 @@
     "access": "public"
   },
   "scripts": {
-    "build": "node ../../scripts/compile-config.ts oxlint.config.ts .oxlintrc.json ../../node_modules/oxlint/configuration_schema.json",
+    "build": "node ../../scripts/compile-config.ts oxlint.config.ts .oxlintrc.json ../../node_modules/oxlint/configuration_schema.json oxlint.config.js",
     "lint": "oxlint -c .oxlintrc.json",
     "fmt": "oxfmt -c ../oxfmt-config/.oxfmtrc.json"
   },
-  "devDependencies": {
+  "dependencies": {
     "@area44/oxc-shared-config": "workspace:*"
   },
   "peerDependencies": {

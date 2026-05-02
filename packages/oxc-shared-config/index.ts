@@ -65,3 +65,5 @@ export const ignorePatterns = [
   "**/next-env.d.ts",
   "**/worker-configuration.d.ts",
 ];
+
+export default ignorePatterns;
