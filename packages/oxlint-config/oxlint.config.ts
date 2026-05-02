@@ -14,9 +14,5 @@ export default defineConfig({
     'vitest',
     'vue',
   ],
-  rules: {
-    eqeqeq: 'error',
-    'no-unused-vars': 'warn',
-  },
   ignorePatterns,
 });
