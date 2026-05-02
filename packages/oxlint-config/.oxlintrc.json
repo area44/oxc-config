@@ -12,10 +12,6 @@
     "vitest",
     "vue"
   ],
-  "rules": {
-    "eqeqeq": "error",
-    "no-unused-vars": "warn"
-  },
   "ignorePatterns": [
     "**/dist",
     "**/build",
