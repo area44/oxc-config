@@ -1,5 +1,5 @@
 import { defineConfig } from 'oxfmt';
-import { ignorePatterns } from '@area44/shared-config';
+import { ignorePatterns } from '@area44/oxc-shared-config';
 
 export default defineConfig({
   printWidth: 80,

@@ -1,5 +1,5 @@
 {
-  "name": "@area44/shared-config",
+  "name": "@area44/oxc-shared-config",
   "version": "0.1.0",
   "private": true,
   "type": "module",

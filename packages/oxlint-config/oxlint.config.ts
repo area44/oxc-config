@@ -1,5 +1,5 @@
 import { defineConfig } from 'oxlint';
-import { ignorePatterns } from '@area44/shared-config';
+import { ignorePatterns } from '@area44/oxc-shared-config';
 
 export default defineConfig({
   plugins: ['typescript', 'import', 'unicorn', 'react'],

@@ -25,7 +25,7 @@ importers:
         specifier: '>=0.0.0'
         version: 0.47.0
     devDependencies:
-      '@area44/shared-config':
+      '@area44/oxc-shared-config':
         specifier: workspace:*
         version: link:../shared-config
 
@@ -35,7 +35,7 @@ importers:
         specifier: '>=1.0.0'
         version: 1.62.0
     devDependencies:
-      '@area44/shared-config':
+      '@area44/oxc-shared-config':
         specifier: workspace:*
         version: link:../shared-config
 

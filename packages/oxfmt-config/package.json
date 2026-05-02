@@ -32,7 +32,7 @@
     "format": "oxfmt -c .oxfmtrc.json --check"
   },
   "devDependencies": {
-    "@area44/shared-config": "workspace:*"
+    "@area44/oxc-shared-config": "workspace:*"
   },
   "peerDependencies": {
     "oxfmt": ">=0.0.0"
