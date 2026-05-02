@@ -5,7 +5,7 @@
   "scripts": {
     "build": "pnpm -r run build",
     "lint": "pnpm -r run lint",
-    "format": "pnpm -r run format"
+    "fmt": "pnpm -r run fmt"
   },
   "dependencies": {
     "oxfmt": "^0.47.0",
