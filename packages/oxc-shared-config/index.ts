@@ -2,7 +2,7 @@
  * Canonical ignore patterns shared across all linters and formatters.
  */
 export const ignorePatterns = [
-  // Build / Framework output
+  // Build and Framework output
   "**/dist",
   "**/build",
   "**/out",
