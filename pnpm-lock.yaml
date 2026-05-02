@@ -15,6 +15,9 @@ importers:
         specifier: ^1.62.0
         version: 1.62.0
     devDependencies:
+      '@types/node':
+        specifier: ^25.6.0
+        version: 25.6.0
       typescript:
         specifier: ^6.0.3
         version: 6.0.3
@@ -287,6 +290,9 @@ packages:
     cpu: [x64]
     os: [win32]
 
+  '@types/node@25.6.0':
+    resolution: {integrity: sha512-+qIYRKdNYJwY3vRCZMdJbPLJAtGjQBudzZzdzwQYkEPQd+PJGixUL5QfvCLDaULoLv+RhT3LDkwEfKaAkgSmNQ==}
+
   oxfmt@0.47.0:
     resolution: {integrity: sha512-OFbkbzxKCpooQEnRmpTDnuwTX8KHXzZTQ4Df/hz85fpS67Pl+lxPEFvUtin56HIIS0B1k4X8oIzTXRZPufA2CA==}
     engines: {node: ^20.19.0 || >=22.12.0}
@@ -310,6 +316,9 @@ packages:
     resolution: {integrity: sha512-y2TvuxSZPDyQakkFRPZHKFm+KKVqIisdg9/CZwm9ftvKXLP8NRWj38/ODjNbr43SsoXqNuAisEf1GdCxqWcdBw==}
     engines: {node: '>=14.17'}
     hasBin: true
+
+  undici-types@7.19.2:
+    resolution: {integrity: sha512-qYVnV5OEm2AW8cJMCpdV20CDyaN3g0AjDlOGf1OW4iaDEx8MwdtChUp4zu4H0VP3nDRF/8RKWH+IPp9uW0YGZg==}
 
 snapshots:
 
@@ -427,6 +436,10 @@ snapshots:
   '@oxlint/binding-win32-x64-msvc@1.62.0':
     optional: true
 
+  '@types/node@25.6.0':
+    dependencies:
+      undici-types: 7.19.2
+
   oxfmt@0.47.0:
     dependencies:
       tinypool: 2.1.0
@@ -476,3 +489,5 @@ snapshots:
   tinypool@2.1.0: {}
 
   typescript@6.0.3: {}
+
+  undici-types@7.19.2: {}
