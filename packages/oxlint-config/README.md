@@ -16,7 +16,7 @@ In your `.oxlintrc.json`:
 
 ```json
 {
-  "extends": ["@area44/oxlint-config"]
+  "extends": ["./node_modules/@area44/oxlint-config/.oxlintrc.json"],
 }
 ```
 
