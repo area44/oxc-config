@@ -9,3 +9,6 @@ lerna-debug.log*
 # pnpm
 .pnpm-store
 .pnpm-debug.log
+
+# dependencies
+node_modules
