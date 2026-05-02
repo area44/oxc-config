@@ -1,6 +1,6 @@
 # @area44/oxlint-config
 
-Shareable oxlint configuration for area44.
+Shareable oxlint configuration for AREA44.
 
 ## Installation
 

@@ -1,6 +1,6 @@
 # @area44/oxfmt-config
 
-Shareable oxfmt configuration for area44.
+Shareable oxfmt configuration for AREA44.
 
 ## Installation
 
