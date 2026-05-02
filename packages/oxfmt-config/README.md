@@ -21,8 +21,8 @@ _Note: Oxfmt's "extends" support is evolving. Check the latest oxfmt documentati
 In your `oxfmt.config.ts`:
 
 ```typescript
-import oxfmtConfig from '@area44/oxfmt-config';
-import { defineConfig } from 'oxfmt';
+import oxfmtConfig from "@area44/oxfmt-config";
+import { defineConfig } from "oxfmt";
 
 export default defineConfig({
   ...oxfmtConfig,
