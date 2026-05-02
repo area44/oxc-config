@@ -1,9 +1,8 @@
 /**
  * Canonical ignore patterns shared across all linters and formatters.
- * Inspired by Ultracite.
  */
 export const ignorePatterns = [
-  // ── Build / framework output ──────────────────────────────────────
+  // Build / Framework output
   "**/dist",
   "**/build",
   "**/out",
@@ -22,11 +21,15 @@ export const ignorePatterns = [
   "**/.parcel-cache",
   "**/.vite",
   "**/.astro",
+  "**/.github",
   "**/_astro",
+  "**/public",
   "**/public/build",
   "**/storybook-static",
 
-  // ── Generated code ────────────────────────────────────────────────
+  // Generated code
+  "*.min.*",
+  "*.map",
   "**/_generated",
   "**/*.gen.*",
   "**/*.generated.*",
@@ -40,25 +43,25 @@ export const ignorePatterns = [
   "**/schema.graphql.d.ts",
   "**/*.d.ts.map",
 
-  // ── Test coverage ─────────────────────────────────────────────────
+  // Test coverage
   "**/coverage",
   "**/.nyc_output",
 
-  // ── Mobile ────────────────────────────────────────────────────────
+  // Mobile
   "**/.expo",
   "**/.expo-shared",
   "**/android/build",
   "**/ios/build",
   "**/DerivedData/**/*",
 
-  // ── Lock files ────────────────────────────────────────────────────
+  // Lock files
   "**/bun.lock",
   "**/bun.lockb",
   "**/package-lock.json",
   "**/yarn.lock",
   "**/pnpm-lock.yaml",
 
-  // ── Framework type definitions ────────────────────────────────────
+  // Framework type definitions
   "**/next-env.d.ts",
   "**/worker-configuration.d.ts",
 ];

@@ -2,14 +2,16 @@
   "$schema": "../../node_modules/oxlint/configuration_schema.json",
   "plugins": [
     "typescript",
-    "import",
     "unicorn",
-    "react"
+    "react",
+    "react-perf",
+    "import",
+    "jsx-a11y",
+    "node",
+    "promise",
+    "vitest",
+    "vue"
   ],
-  "rules": {
-    "eqeqeq": "error",
-    "no-unused-vars": "warn"
-  },
   "ignorePatterns": [
     "**/dist",
     "**/build",
@@ -29,9 +31,13 @@
     "**/.parcel-cache",
     "**/.vite",
     "**/.astro",
+    "**/.github",
     "**/_astro",
+    "**/public",
     "**/public/build",
     "**/storybook-static",
+    "*.min.*",
+    "*.map",
     "**/_generated",
     "**/*.gen.*",
     "**/*.generated.*",
