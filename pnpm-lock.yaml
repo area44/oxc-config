@@ -24,12 +24,22 @@ importers:
       oxfmt:
         specifier: '>=0.0.0'
         version: 0.47.0
+    devDependencies:
+      '@area44/shared-config':
+        specifier: workspace:*
+        version: link:../shared-config
 
   packages/oxlint-config:
     dependencies:
       oxlint:
         specifier: '>=1.0.0'
         version: 1.62.0
+    devDependencies:
+      '@area44/shared-config':
+        specifier: workspace:*
+        version: link:../shared-config
+
+  packages/shared-config: {}
 
 packages:
 
