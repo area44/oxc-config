@@ -1,4 +1,5 @@
 import { defineConfig } from 'oxfmt';
+import { ignorePatterns } from '@area44/oxc-shared-config';
 
 export default defineConfig({
   printWidth: 80,
@@ -7,11 +8,5 @@ export default defineConfig({
   trailingComma: 'all',
   tabWidth: 2,
   useTabs: false,
-  ignorePatterns: [
-    '**/node_modules/**',
-    '**/dist/**',
-    '**/.next/**',
-    '**/.nuxt/**',
-    '**/.svelte-kit/**',
-  ],
+  ignorePatterns,
 });
