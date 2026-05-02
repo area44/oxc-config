@@ -28,8 +28,8 @@
   },
   "scripts": {
     "build": "node ../../scripts/compile-config.ts oxfmt.config.ts .oxfmtrc.json ../../node_modules/oxfmt/configuration_schema.json",
-    "lint": "oxlint -c ../oxlint-config/.oxlintrc.json",
-    "format": "oxfmt -c .oxfmtrc.json --check"
+    "lint": "oxlint",
+    "format": "oxfmt"
   },
   "devDependencies": {
     "@area44/oxc-shared-config": "workspace:*"
