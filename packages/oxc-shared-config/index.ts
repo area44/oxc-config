@@ -1,7 +1,7 @@
 /**
  * Canonical ignore patterns shared across all linters and formatters.
  */
-export const ignorePatterns = [
+export default ignorePatterns = [
   // Build and Framework output
   "**/dist",
   "**/build",
@@ -65,5 +65,3 @@ export const ignorePatterns = [
   "**/next-env.d.ts",
   "**/worker-configuration.d.ts",
 ];
-
-export default ignorePatterns;
