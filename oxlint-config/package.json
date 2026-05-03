@@ -28,11 +28,11 @@
     "access": "public"
   },
   "scripts": {
-    "build": "node ../../scripts/compile-config.ts oxlint.config.ts .oxlintrc.json ../../node_modules/oxlint/configuration_schema.json oxlint.config.js",
+    "build": "node ../scripts/compile-config.ts oxlint.config.ts .oxlintrc.json ../node_modules/oxlint/configuration_schema.json oxlint.config.js",
     "lint": "oxlint -c .oxlintrc.json",
     "fmt": "oxfmt -c ../oxfmt-config/.oxfmtrc.json"
   },
-  "dependencies": {
+  "devDependencies": {
     "@area44/oxc-shared-config": "workspace:*"
   },
   "peerDependencies": {

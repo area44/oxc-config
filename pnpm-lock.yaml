@@ -25,25 +25,27 @@ importers:
         specifier: ^6.0.3
         version: 6.0.3
 
-  packages/oxc-shared-config: {}
+  internal/shared-config: {}
 
-  packages/oxfmt-config:
+  oxfmt-config:
     dependencies:
-      '@area44/oxc-shared-config':
-        specifier: workspace:*
-        version: link:../oxc-shared-config
       oxfmt:
         specifier: '>=0.0.0'
         version: 0.47.0
-
-  packages/oxlint-config:
-    dependencies:
+    devDependencies:
       '@area44/oxc-shared-config':
         specifier: workspace:*
-        version: link:../oxc-shared-config
+        version: link:../internal/shared-config
+
+  oxlint-config:
+    dependencies:
       oxlint:
         specifier: '>=1.0.0'
         version: 1.62.0
+    devDependencies:
+      '@area44/oxc-shared-config':
+        specifier: workspace:*
+        version: link:../internal/shared-config
 
 packages:
 

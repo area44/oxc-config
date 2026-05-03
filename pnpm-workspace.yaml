@@ -1,2 +1,4 @@
 packages:
-  - "packages/*"
+  - "oxlint-config"
+  - "oxfmt-config"
+  - "internal/shared-config"
