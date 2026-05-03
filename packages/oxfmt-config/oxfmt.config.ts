@@ -1,5 +1,6 @@
-import { ignorePatterns } from "@area44/oxc-shared-config";
 import { defineConfig } from "oxfmt";
+
+import { ignorePatterns } from "../../utils/oxc-shared-config/index.js";
 
 export default defineConfig({
   sortImports: {

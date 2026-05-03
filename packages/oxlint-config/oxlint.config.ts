@@ -1,5 +1,6 @@
-import { ignorePatterns } from "@area44/oxc-shared-config";
 import { defineConfig } from "oxlint";
+
+import { ignorePatterns } from "../../utils/oxc-shared-config/index.js";
 
 export default defineConfig({
   plugins: [
