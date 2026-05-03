@@ -1,5 +1,5 @@
 export default {
-  "plugins": [
+  plugins: [
     "typescript",
     "unicorn",
     "react",
@@ -9,9 +9,9 @@ export default {
     "node",
     "promise",
     "vitest",
-    "vue"
+    "vue",
   ],
-  "ignorePatterns": [
+  ignorePatterns: [
     "**/dist",
     "**/build",
     "**/out",
@@ -62,6 +62,6 @@ export default {
     "**/yarn.lock",
     "**/pnpm-lock.yaml",
     "**/next-env.d.ts",
-    "**/worker-configuration.d.ts"
-  ]
+    "**/worker-configuration.d.ts",
+  ],
 };
