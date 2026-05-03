@@ -1,8 +1,4 @@
-/**
- * Canonical ignore patterns shared across all linters and formatters.
- */
 export const ignorePatterns = [
-  // Build and Framework output
   "**/dist",
   "**/build",
   "**/out",
@@ -26,8 +22,6 @@ export const ignorePatterns = [
   "**/public",
   "**/public/build",
   "**/storybook-static",
-
-  // Generated code
   "*.min.*",
   "*.map",
   "**/_generated",
@@ -42,28 +36,19 @@ export const ignorePatterns = [
   "**/schema.d.ts",
   "**/schema.graphql.d.ts",
   "**/*.d.ts.map",
-
-  // Test coverage
   "**/coverage",
   "**/.nyc_output",
-
-  // Mobile
   "**/.expo",
   "**/.expo-shared",
   "**/android/build",
   "**/ios/build",
   "**/DerivedData/**/*",
-
-  // Lock files
   "**/bun.lock",
   "**/bun.lockb",
   "**/package-lock.json",
   "**/yarn.lock",
   "**/pnpm-lock.yaml",
-
-  // Framework type definitions
   "**/next-env.d.ts",
-  "**/worker-configuration.d.ts",
+  "**/worker-configuration.d.ts"
 ];
-
 export default ignorePatterns;

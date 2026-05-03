@@ -1,10 +1,33 @@
 {
   "name": "@area44/oxc-shared-config",
   "version": "0.1.0",
-  "private": true,
+  "description": "Canonical ignore patterns shared across all linters and formatters",
+  "keywords": [
+    "config",
+    "oxc",
+    "ignore"
+  ],
+  "license": "MIT",
+  "author": "area44",
   "type": "module",
-  "main": "./index.ts",
+  "main": "./index.js",
+  "files": [
+    "index.ts",
+    "index.js",
+    "README.md"
+  ],
   "exports": {
-    ".": "./index.ts"
+    ".": {
+      "types": "./index.ts",
+      "import": "./index.js",
+      "default": "./index.js"
+    },
+    "./index.js": "./index.js"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "scripts": {
+    "build": "node ../../scripts/compile-config.ts index.ts \"\" \"\" index.js"
   }
 }

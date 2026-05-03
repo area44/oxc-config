@@ -1,36 +1,64 @@
 /**
- * This script compiles a TypeScript configuration file into a JSON file.
- * It dynamically imports the TypeScript file and writes its default export to the target JSON path.
- * Optionally, it can prepend a $schema property to the resulting JSON.
+ * This script compiles a TypeScript configuration file into a JSON file and/or a JS file.
+ * It dynamically imports the TypeScript file and writes its exports to the target paths.
  */
 import { writeFileSync } from 'node:fs';
 import { resolve, isAbsolute } from 'node:path';
 import { pathToFileURL } from 'node:url';
 
 async function main() {
-  const [,, source, target, schema] = process.argv;
+  const [,, source, target, schema, jsTarget] = process.argv;
 
-  if (!source || !target) {
-    console.error('Usage: node compile-config.ts <source.ts> <target.json> [schema-url]');
+  if (!source) {
+    console.error('Usage: node compile-config.ts <source.ts> <target.json> [schema-url] [target.js]');
     process.exit(1);
   }
 
   const sourcePath = isAbsolute(source) ? source : resolve(process.cwd(), source);
-  const targetPath = isAbsolute(target) ? target : resolve(process.cwd(), target);
 
   /**
    * pathToFileURL is used to ensure compatibility with Windows for dynamic imports.
    * Node.js requires file:// URLs for importing local modules in ESM.
    */
-  const { default: config } = await import(pathToFileURL(sourcePath).href);
+  const module = await import(pathToFileURL(sourcePath).href);
+  const config = module.default;
 
-  const output = {
-    ...(schema ? { "$schema": schema } : {}),
-    ...config,
-  };
+  if (target && target !== '""' && target !== "''") {
+    const targetPath = isAbsolute(target) ? target : resolve(process.cwd(), target);
+    const output = {
+      ...(schema ? { "$schema": schema } : {}),
+      ...config,
+    };
+    writeFileSync(targetPath, JSON.stringify(output, null, 2) + '\n');
+    console.log(`Compiled ${source} to ${target}`);
+  }
 
-  writeFileSync(targetPath, JSON.stringify(output, null, 2) + '\n');
-  console.log(`Compiled ${source} to ${target}`);
+  if (jsTarget) {
+    const jsTargetPath = isAbsolute(jsTarget) ? jsTarget : resolve(process.cwd(), jsTarget);
+    let jsOutput = '';
+    let defaultExportName = '';
+
+    // Export all named exports
+    for (const [key, value] of Object.entries(module)) {
+      if (key !== 'default') {
+        jsOutput += `export const ${key} = ${JSON.stringify(value, null, 2)};\n`;
+        // Check if the default export is the same as this named export to avoid duplication
+        if (value === config) {
+          defaultExportName = key;
+        }
+      }
+    }
+
+    // Export default export
+    if (defaultExportName) {
+      jsOutput += `export default ${defaultExportName};\n`;
+    } else {
+      jsOutput += `export default ${JSON.stringify(config, null, 2)};\n`;
+    }
+
+    writeFileSync(jsTargetPath, jsOutput);
+    console.log(`Compiled ${source} to ${jsTarget}`);
+  }
 }
 
 main().catch(err => {
