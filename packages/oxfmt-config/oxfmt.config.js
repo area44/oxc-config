@@ -1,16 +1,27 @@
 export default {
-  sortImports: {
-    groups: [
+  "sortImports": {
+    "groups": [
       "type-import",
-      ["value-builtin", "value-external"],
+      [
+        "value-builtin",
+        "value-external"
+      ],
       "type-internal",
       "value-internal",
-      ["type-parent", "type-sibling", "type-index"],
-      ["value-parent", "value-sibling", "value-index"],
-      "unknown",
-    ],
+      [
+        "type-parent",
+        "type-sibling",
+        "type-index"
+      ],
+      [
+        "value-parent",
+        "value-sibling",
+        "value-index"
+      ],
+      "unknown"
+    ]
   },
-  ignorePatterns: [
+  "ignorePatterns": [
     "**/dist",
     "**/build",
     "**/out",
@@ -61,6 +72,6 @@ export default {
     "**/yarn.lock",
     "**/pnpm-lock.yaml",
     "**/next-env.d.ts",
-    "**/worker-configuration.d.ts",
-  ],
+    "**/worker-configuration.d.ts"
+  ]
 };
