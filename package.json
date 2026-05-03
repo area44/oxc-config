@@ -5,7 +5,9 @@
   "scripts": {
     "build": "pnpm -r run build",
     "lint": "pnpm -r run lint",
-    "fmt": "pnpm -r run fmt"
+    "fmt": "pnpm -r run fmt",
+    "version-packages": "changeset version",
+    "release": "pnpm build && changeset publish"
   },
   "dependencies": {
     "oxfmt": "^0.47.0",
@@ -15,6 +17,7 @@
     "node": ">=23.0.0"
   },
   "devDependencies": {
+    "@changesets/cli": "^2.31.0",
     "@types/node": "^25.6.0",
     "typescript": "^6.0.3"
   },
