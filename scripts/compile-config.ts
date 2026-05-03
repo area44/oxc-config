@@ -36,16 +36,25 @@ async function main() {
   if (jsTarget) {
     const jsTargetPath = isAbsolute(jsTarget) ? jsTarget : resolve(process.cwd(), jsTarget);
     let jsOutput = '';
+    let defaultExportName = '';
 
     // Export all named exports
     for (const [key, value] of Object.entries(module)) {
       if (key !== 'default') {
         jsOutput += `export const ${key} = ${JSON.stringify(value, null, 2)};\n`;
+        // Check if the default export is the same as this named export to avoid duplication
+        if (value === config) {
+          defaultExportName = key;
+        }
       }
     }
 
     // Export default export
-    jsOutput += `export default ${JSON.stringify(config, null, 2)};\n`;
+    if (defaultExportName) {
+      jsOutput += `export default ${defaultExportName};\n`;
+    } else {
+      jsOutput += `export default ${JSON.stringify(config, null, 2)};\n`;
+    }
 
     writeFileSync(jsTargetPath, jsOutput);
     console.log(`Compiled ${source} to ${jsTarget}`);
