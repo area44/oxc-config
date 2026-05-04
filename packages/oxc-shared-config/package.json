@@ -10,24 +10,15 @@
   "license": "MIT",
   "author": "area44",
   "type": "module",
-  "main": "./index.js",
+  "main": "./index.mjs",
   "files": [
-    "index.ts",
-    "index.js",
+    "index.mjs",
     "README.md"
   ],
   "exports": {
-    ".": {
-      "types": "./index.ts",
-      "import": "./index.js",
-      "default": "./index.js"
-    },
-    "./index.js": "./index.js"
+    ".": "./index.mjs"
   },
   "publishConfig": {
     "access": "public"
-  },
-  "scripts": {
-    "build": "node ../../scripts/compile-config.ts index.ts \"\" \"\" index.js"
   }
 }
