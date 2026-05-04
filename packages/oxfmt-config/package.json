@@ -32,7 +32,8 @@
     "lint": "oxlint -c ../oxlint-config/.oxlintrc.json",
     "fmt": "oxfmt -c .oxfmtrc.json"
   },
-  "dependencies": {
+  "dependencies": {},
+  "devDependencies": {
     "@area44/oxc-shared-config": "workspace:*"
   },
   "peerDependencies": {
