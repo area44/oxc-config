@@ -10,25 +10,12 @@ pnpm add -D oxlint @area44/oxlint-config
 
 ## Usage
 
-### JSON Format
+### ESM Format
 
-In your `.oxlintrc.json`:
+In your `oxlint.config.mjs`:
 
-```json
-{
-  "extends": ["./node_modules/@area44/oxlint-config/.oxlintrc.json"]
-}
-```
-
-### TypeScript Format
-
-In your `oxlint.config.ts`:
-
-```typescript
+```javascript
 import oxlintConfig from "@area44/oxlint-config";
-import { defineConfig } from "oxlint";
 
-export default defineConfig({
-  extends: [oxlintConfig],
-});
+export default oxlintConfig;
 ```

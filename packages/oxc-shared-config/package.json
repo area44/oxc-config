@@ -1,6 +1,6 @@
 {
   "name": "@area44/oxc-shared-config",
-  "version": "0.2.0",
+  "version": "0.2.2",
   "private": true,
   "description": "Canonical ignore patterns shared across all linters and formatters",
   "keywords": [
@@ -23,7 +23,7 @@
     "access": "public"
   },
   "scripts": {
-    "lint": "oxlint -c ../../packages/oxlint-config/.oxlintrc.json",
-    "fmt": "oxfmt -c ../../packages/oxfmt-config/.oxfmtrc.json"
+    "lint": "oxlint -c ../../packages/oxlint-config/oxlint.config.mjs",
+    "fmt": "oxfmt -c ../../packages/oxfmt-config/oxfmt.config.mjs"
   }
 }
