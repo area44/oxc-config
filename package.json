@@ -6,8 +6,8 @@
     "build": "pnpm -r run build && pnpm -r run fmt",
     "lint": "pnpm -r run lint",
     "fmt": "pnpm -r run fmt",
-    "version-packages": "changeset version && pnpm install --no-frozen-lockfile",
-    "release": "pnpm build && changeset publish -- --provenance"
+    "version-packages": "changeset version",
+    "release": "changeset publish"
   },
   "dependencies": {
     "oxfmt": "^0.47.0",
