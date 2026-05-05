@@ -12,3 +12,6 @@ lerna-debug.log*
 
 # dependencies
 node_modules
+
+# Output of 'npm pack'
+*.tgz
