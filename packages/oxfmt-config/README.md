@@ -16,12 +16,15 @@ Oxfmt currently searches for configuration files upward. You can use this by cre
 
 _Note: Oxfmt's "extends" support is evolving. Check the latest oxfmt documentation for the most current way to use shared configs._
 
-### ESM Format
+### Typescript/ESM Format
 
-In your `oxfmt.config.mjs`:
+In your `oxfmt.config.ts`:
 
-```javascript
+```typecript
 import oxfmtConfig from "@area44/oxfmt-config";
+import { defineConfig } from "oxfmt";
 
-export default oxfmtConfig;
+export default defineConfig({
+  extends: [oxfmtConfig],
+});
 ```

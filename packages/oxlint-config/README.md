@@ -20,12 +20,15 @@ In your `.oxlintrc.json`:
 }
 ```
 
-### ESM Format
+### Typescript/ESM Format
 
-In your `oxlint.config.mjs`:
+In your `oxlint.config.ts`:
 
-```javascript
+```typescript
 import oxlintConfig from "@area44/oxlint-config";
+import { defineConfig } from "oxlint";
 
-export default oxlintConfig;
+export default defineConfig({
+  extends: [oxlintConfig],
+});
 ```

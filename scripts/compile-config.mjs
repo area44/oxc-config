@@ -1,5 +1,5 @@
 /**
- * This script compiles an ESM configuration file into a JSON file and/or a JS file.
+ * This script compiles an ESM configuration file into a JSON file.
  * It dynamically imports the module and writes its exports to the target paths.
  */
 import { writeFileSync } from 'node:fs';
@@ -7,10 +7,10 @@ import { resolve, isAbsolute } from 'node:path';
 import { pathToFileURL } from 'node:url';
 
 async function main() {
-  const [,, source, target, schema, jsTarget] = process.argv;
+  const [,, source, target, schema] = process.argv;
 
   if (!source) {
-    console.error('Usage: node compile-config.mjs <source.mjs> <target.json> [schema-url] [target.js]');
+    console.error('Usage: node compile-config.mjs <source.mjs> <target.json> [schema-url]');
     process.exit(1);
   }
 
@@ -31,33 +31,6 @@ async function main() {
     };
     writeFileSync(targetPath, JSON.stringify(output, null, 2) + '\n');
     console.log(`Compiled ${source} to ${target}`);
-  }
-
-  if (jsTarget) {
-    const jsTargetPath = isAbsolute(jsTarget) ? jsTarget : resolve(process.cwd(), jsTarget);
-    let jsOutput = '';
-    let defaultExportName = '';
-
-    // Export all named exports
-    for (const [key, value] of Object.entries(module)) {
-      if (key !== 'default') {
-        jsOutput += `export const ${key} = ${JSON.stringify(value, null, 2)};\n`;
-        // Check if the default export is the same as this named export to avoid duplication
-        if (value === config) {
-          defaultExportName = key;
-        }
-      }
-    }
-
-    // Export default export
-    if (defaultExportName) {
-      jsOutput += `export default ${defaultExportName};\n`;
-    } else {
-      jsOutput += `export default ${JSON.stringify(config, null, 2)};\n`;
-    }
-
-    writeFileSync(jsTargetPath, jsOutput);
-    console.log(`Compiled ${source} to ${jsTarget}`);
   }
 }
 
