@@ -1,6 +1,7 @@
 import { ignorePatterns } from "@area44/oxc-shared-config";
+import { defineConfig } from "oxlint";
 
-export default {
+export default defineConfig({
   plugins: [
     "typescript",
     "unicorn",
@@ -14,4 +15,4 @@ export default {
     "vue",
   ],
   ignorePatterns,
-};
+});

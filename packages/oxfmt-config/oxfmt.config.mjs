@@ -1,6 +1,7 @@
 import { ignorePatterns } from "@area44/oxc-shared-config";
+import { defineConfig } from "oxfmt";
 
-export default {
+export default defineConfig({
   sortImports: {
     groups: [
       "type-import",
@@ -13,4 +14,4 @@ export default {
     ],
   },
   ignorePatterns,
-};
+});
