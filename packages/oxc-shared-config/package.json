@@ -1,6 +1,6 @@
 {
   "name": "@area44/oxc-shared-config",
-  "version": "0.2.2",
+  "version": "0.2.3",
   "private": true,
   "description": "Canonical ignore patterns shared across all linters and formatters",
   "keywords": [
