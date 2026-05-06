@@ -1,6 +1,6 @@
 {
   "name": "@area44/oxlint-config",
-  "version": "0.2.1",
+  "version": "0.2.2",
   "description": "Shareable oxlint configuration",
   "keywords": [
     "config",
@@ -15,16 +15,14 @@
   },
   "files": [
     ".oxlintrc.json",
-    "oxlint.config.ts",
-    "oxlint.config.js",
+    "oxlint.config.mjs",
     "README.md"
   ],
   "type": "module",
   "main": "./.oxlintrc.json",
   "exports": {
     ".": {
-      "types": "./oxlint.config.ts",
-      "import": "./oxlint.config.js",
+      "import": "./oxlint.config.mjs",
       "default": "./.oxlintrc.json"
     }
   },
@@ -32,7 +30,7 @@
     "access": "public"
   },
   "scripts": {
-    "build": "node ../../scripts/compile-config.ts oxlint.config.ts .oxlintrc.json ../../node_modules/oxlint/configuration_schema.json oxlint.config.js",
+    "build": "node ../../scripts/compile-config.mjs oxlint.config.mjs .oxlintrc.json ../../node_modules/oxlint/configuration_schema.json",
     "lint": "oxlint -c .oxlintrc.json",
     "fmt": "oxfmt -c ../oxfmt-config/.oxfmtrc.json"
   },

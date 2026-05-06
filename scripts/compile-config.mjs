@@ -1,6 +1,6 @@
 /**
- * This script compiles a TypeScript configuration file into a JSON file and/or a JS file.
- * It dynamically imports the TypeScript file and writes its exports to the target paths.
+ * This script compiles an ESM configuration file into a JSON file and/or a JS file.
+ * It dynamically imports the module and writes its exports to the target paths.
  */
 import { writeFileSync } from 'node:fs';
 import { resolve, isAbsolute } from 'node:path';
@@ -10,7 +10,7 @@ async function main() {
   const [,, source, target, schema, jsTarget] = process.argv;
 
   if (!source) {
-    console.error('Usage: node compile-config.ts <source.ts> <target.json> [schema-url] [target.js]');
+    console.error('Usage: node compile-config.mjs <source.mjs> <target.json> [schema-url] [target.js]');
     process.exit(1);
   }
 
