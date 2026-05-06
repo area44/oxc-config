@@ -23,7 +23,7 @@
     "access": "public"
   },
   "scripts": {
-    "lint": "oxlint -c ../../packages/oxlint-config/oxlint.config.mjs",
-    "fmt": "oxfmt -c ../../packages/oxfmt-config/oxfmt.config.mjs"
+    "lint": "oxlint -c ../../packages/oxlint-config/.oxlintrc.json",
+    "fmt": "oxfmt -c ../../packages/oxfmt-config/.oxfmtrc.json"
   }
 }

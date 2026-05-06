@@ -10,6 +10,16 @@ pnpm add -D oxlint @area44/oxlint-config
 
 ## Usage
 
+### JSON Format
+
+In your `.oxlintrc.json`:
+
+```json
+{
+  "extends": ["./node_modules/@area44/oxlint-config/.oxlintrc.json"]
+}
+```
+
 ### ESM Format
 
 In your `oxlint.config.mjs`:
