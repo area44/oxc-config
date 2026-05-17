@@ -39,6 +39,6 @@
     "@area44/oxc-shared-config": "workspace:*"
   },
   "peerDependencies": {
-    "oxlint": ">=1.63.0"
+    "oxlint": ">=1.65.0"
   }
 }
