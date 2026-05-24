@@ -39,6 +39,6 @@
     "@area44/oxc-shared-config": "workspace:*"
   },
   "peerDependencies": {
-    "oxfmt": ">=0.50.0"
+    "oxfmt": ">=0.51.0"
   }
 }
