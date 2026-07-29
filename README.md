@@ -2,7 +2,7 @@
 
 AREA44's canonical shareable configurations for `Oxlint` and `Oxfmt`.
 
-This monorepo is configured with modern, next-generation web tooling, featuring **Vite**, **Rolldown**, and **Vitest (Vite Test)** for lightning-fast builds, bundle inlining, and automated testing.
+This monorepo is configured with modern, next-generation web tooling, featuring **Rolldown** and **Vitest (Vite Test)** for lightning-fast builds, bundle inlining, and automated testing.
 
 ## Workspace Overview
 
@@ -12,10 +12,10 @@ This monorepo is configured with modern, next-generation web tooling, featuring 
 
 ## Toolchain & Configuration
 
-This project standardizes on the VoidZero/Vite ecosystem:
+This project standardizes on the following tooling:
 - **Build / Bundling**: Powered by **Rolldown** (`rolldown.config.ts`), inlining local packages to generate static, self-contained ES Module (`.mjs`) and JSON (`.json`) configs.
 - **Testing**: Powered by **Vitest (Vite Test)** (`vite.config.ts`) to verify configuration schemas and ensure build outputs are synchronized.
-- **Code Quality**: Designed to align perfectly with **Ultracite** and official `Oxc` guidelines.
+- **Code Quality**: Designed to align perfectly with the official `Oxc` guidelines.
 
 ## Development Workflows
 
@@ -42,7 +42,3 @@ To lint the repository:
 ```bash
 pnpm lint
 ```
-
-## Alignment with Ultracite
-
-The configurations in this monorepo are optimized for teams using standard Oxc/ESlint setups, as well as the **Ultracite** zero-config toolchain. Check out the package-level READMEs for framework presets and usage examples!
