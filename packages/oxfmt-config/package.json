@@ -34,10 +34,10 @@
     "lint": "oxlint -c ../oxlint-config/.oxlintrc.json",
     "fmt": "oxfmt -c .oxfmtrc.json"
   },
-  "dependencies": {},
-  "devDependencies": {
+  "dependencies": {
     "@area44/oxc-shared-config": "workspace:*"
   },
+  "devDependencies": {},
   "peerDependencies": {
     "oxfmt": ">=0.60.0"
   }
