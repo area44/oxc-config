@@ -1,4 +1,6 @@
-export default {
+//#endregion
+//#region main.ts
+var main_default = {
   plugins: [
     "typescript",
     "unicorn",
@@ -65,3 +67,5 @@ export default {
     "**/worker-configuration.d.ts",
   ],
 };
+//#endregion
+export { main_default as default };

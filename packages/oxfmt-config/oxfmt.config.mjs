@@ -1,4 +1,6 @@
-export default {
+//#endregion
+//#region main.ts
+var main_default = {
   sortImports: {
     groups: [
       "type-import",
@@ -64,3 +66,5 @@ export default {
     "**/worker-configuration.d.ts",
   ],
 };
+//#endregion
+export { main_default as default };
