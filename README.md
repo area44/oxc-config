@@ -2,7 +2,7 @@
 
 AREA44's canonical shareable configurations for `Oxlint` and `Oxfmt`.
 
-This monorepo is configured with modern, next-generation web tooling, featuring **Rolldown** and **Vitest (Vite Test)** for lightning-fast builds, bundle inlining, and automated testing.
+This monorepo is configured with modern, next-generation web tooling, featuring **Rolldown** for lightning-fast builds and bundle inlining.
 
 ## Workspace Overview
 
@@ -14,7 +14,6 @@ This monorepo is configured with modern, next-generation web tooling, featuring 
 
 This project standardizes on the following tooling:
 - **Build / Bundling**: Powered by **Rolldown** (`rolldown.config.ts`), inlining local packages to generate static, self-contained ES Module (`.mjs`) and JSON (`.json`) configs.
-- **Testing**: Powered by **Vitest (Vite Test)** (`vite.config.ts`) to verify configuration schemas and ensure build outputs are synchronized.
 - **Code Quality**: Designed to align perfectly with the official `Oxc` guidelines.
 
 ## Development Workflows
@@ -23,12 +22,6 @@ This project standardizes on the following tooling:
 To build all packages using Rolldown:
 ```bash
 pnpm build
-```
-
-### Running Tests
-To execute the test suite via Vitest / `vite test`:
-```bash
-pnpm test
 ```
 
 ### Formatting
