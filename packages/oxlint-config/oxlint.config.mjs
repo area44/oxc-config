@@ -1,4 +1,6 @@
-export default {
+//#endregion
+//#region index.ts
+var oxlint_config_default = {
   plugins: [
     "typescript",
     "unicorn",
@@ -65,3 +67,5 @@ export default {
     "**/worker-configuration.d.ts",
   ],
 };
+//#endregion
+export { oxlint_config_default as default };

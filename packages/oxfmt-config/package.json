@@ -30,7 +30,7 @@
     "access": "public"
   },
   "scripts": {
-    "build": "node --experimental-strip-types ../../scripts/compile-config.mjs main.ts .oxfmtrc.json ../../node_modules/oxfmt/configuration_schema.json oxfmt.config.mjs",
+    "build": "rolldown -c",
     "lint": "oxlint -c ../oxlint-config/.oxlintrc.json",
     "fmt": "oxfmt -c .oxfmtrc.json"
   },
