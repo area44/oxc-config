@@ -24,7 +24,6 @@ import oxlintConfig from "@area44/oxlint-config";
 
 export default defineConfig({
   extends: [oxlintConfig],
-  ignorePatterns: oxlintConfig.ignorePatterns,
 });
 ```
 
