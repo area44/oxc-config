@@ -7,10 +7,10 @@ import { resolve, isAbsolute } from 'node:path';
 import { pathToFileURL } from 'node:url';
 
 async function main() {
-  const [,, source, target, schema] = process.argv;
+  const [,, source, target, schema, targetEsm] = process.argv;
 
   if (!source) {
-    console.error('Usage: node compile-config.mjs <source.mjs> <target.json> [schema-url]');
+    console.error('Usage: node compile-config.mjs <source.mjs> <target.json> [schema-url] [target-esm.mjs]');
     process.exit(1);
   }
 
@@ -31,6 +31,13 @@ async function main() {
     };
     writeFileSync(targetPath, JSON.stringify(output, null, 2) + '\n');
     console.log(`Compiled ${source} to ${target}`);
+  }
+
+  if (targetEsm && targetEsm !== '""' && targetEsm !== "''") {
+    const targetEsmPath = isAbsolute(targetEsm) ? targetEsm : resolve(process.cwd(), targetEsm);
+    const outputEsm = `export default ${JSON.stringify(config, null, 2)};\n`;
+    writeFileSync(targetEsmPath, outputEsm);
+    console.log(`Compiled ESM ${source} to self-contained ${targetEsm}`);
   }
 }
 
