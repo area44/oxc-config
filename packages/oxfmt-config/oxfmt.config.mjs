@@ -1,6 +1,6 @@
 //#endregion
-//#region main.ts
-var main_default = {
+//#region index.ts
+var oxfmt_config_default = {
   sortImports: {
     groups: [
       "type-import",
@@ -67,4 +67,4 @@ var main_default = {
   ],
 };
 //#endregion
-export { main_default as default };
+export { oxfmt_config_default as default };

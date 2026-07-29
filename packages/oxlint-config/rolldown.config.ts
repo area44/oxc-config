@@ -4,7 +4,7 @@ import { pathToFileURL } from "node:url";
 import { defineConfig } from "rolldown";
 
 export default defineConfig({
-  input: "main.ts",
+  input: "index.ts",
   output: {
     file: "oxlint.config.mjs",
     format: "esm",

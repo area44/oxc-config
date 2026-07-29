@@ -1,6 +1,6 @@
 //#endregion
-//#region main.ts
-var main_default = {
+//#region index.ts
+var oxlint_config_default = {
   plugins: [
     "typescript",
     "unicorn",
@@ -68,4 +68,4 @@ var main_default = {
   ],
 };
 //#endregion
-export { main_default as default };
+export { oxlint_config_default as default };
