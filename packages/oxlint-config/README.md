@@ -19,8 +19,8 @@ Depending on your toolchain, you can integrate this configuration using JSON or 
 In your project's `oxlint.config.mjs` or `oxlint.config.ts`:
 
 ```typescript
-import { defineConfig } from "oxlint";
 import oxlintConfig from "@area44/oxlint-config";
+import { defineConfig } from "oxlint";
 
 export default defineConfig({
   extends: [oxlintConfig],
