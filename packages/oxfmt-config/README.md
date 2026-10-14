@@ -21,8 +21,8 @@ Depending on your toolchain, you can integrate this configuration using the spre
 In your `oxfmt.config.mjs` or `oxfmt.config.ts`:
 
 ```typescript
-import { defineConfig } from "oxfmt";
 import oxfmtConfig from "@area44/oxfmt-config";
+import { defineConfig } from "oxfmt";
 
 export default defineConfig({
   ...oxfmtConfig,
