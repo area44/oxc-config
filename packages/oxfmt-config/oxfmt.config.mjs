@@ -1,5 +1,4 @@
-//#endregion
-//#region index.ts
+// index.ts
 var oxfmt_config_default = {
   sortImports: {
     groups: [
@@ -66,5 +65,4 @@ var oxfmt_config_default = {
     "**/worker-configuration.d.ts",
   ],
 };
-//#endregion
 export { oxfmt_config_default as default };
