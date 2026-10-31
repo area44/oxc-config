@@ -1,0 +1,46 @@
+{
+  "name": "@area44/oxfmt",
+  "version": "0.3.0",
+  "description": "Comprehensive Ultracite-based shareable Oxfmt configuration for AREA44",
+  "keywords": [
+    "config",
+    "formatter",
+    "oxfmt",
+    "ultracite"
+  ],
+  "license": "MIT",
+  "author": "area44",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/area44/oxc-config.git"
+  },
+  "files": [
+    ".oxfmtrc.json",
+    "oxfmt.config.mjs",
+    "index.d.ts",
+    "README.md"
+  ],
+  "type": "module",
+  "main": "./.oxfmtrc.json",
+  "types": "./index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./index.d.ts",
+      "import": "./oxfmt.config.mjs",
+      "default": "./.oxfmtrc.json"
+    }
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "scripts": {
+    "build": "rolldown -c",
+    "lint": "oxlint -c ../oxlint/.oxlintrc.json --ignore-pattern \"oxfmt.config.mjs\" --ignore-pattern \"index.d.ts\" src",
+    "fmt": "oxfmt -c .oxfmtrc.json"
+  },
+  "dependencies": {},
+  "devDependencies": {},
+  "peerDependencies": {
+    "oxfmt": ">=0.75.0"
+  }
+}
