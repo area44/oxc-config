@@ -3,9 +3,11 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "build": "pnpm -r run build && pnpm -r run fmt",
+    "build": "pnpm -r run build",
     "lint": "pnpm -r run lint",
     "fmt": "pnpm -r run fmt",
+    "test": "node --test tests/integration/*.test.ts tests/integration/*.test.js",
+    "upstream:sync": "node scripts/sync-ultracite.ts",
     "version-packages": "changeset version",
     "release": "changeset publish"
   },
@@ -17,10 +19,11 @@
     "@changesets/cli": "^3.0.3",
     "@types/node": "^26.6.6",
     "rolldown": "^1.2.15",
-    "typescript": "^7.0.2"
+    "typescript": "^7.0.2",
+    "ultracite": "^8.1.0"
   },
   "engines": {
-    "node": ">=26.13.0"
+    "node": ">=22.22.0"
   },
   "packageManager": "pnpm@12.16.1"
 }
