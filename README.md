@@ -1,37 +1,45 @@
 # @area44/oxc-config
 
-AREA44's canonical shareable configurations for `Oxlint` and `Oxfmt`.
+AREA44's canonical shareable configurations for `Oxlint` and `Oxfmt`, based on Ultracite.
 
-This monorepo is configured with modern, next-generation web tooling, featuring **Rolldown** for lightning-fast builds and bundle inlining.
+## Packages
 
-## Workspace Overview
+This monorepo publishes exactly two independent npm packages:
+- **`@area44/oxlint`**: Comprehensive, production-ready Oxlint configuration.
+- **`@area44/oxfmt`**: Comprehensive, production-ready Oxfmt configuration.
 
-- **`@area44/oxc-shared-config`** (Private): Contains the canonical `ignorePatterns` used across both formatters and linters.
-- **`@area44/oxfmt-config`**: Shareable Oxfmt formatter configuration.
-- **`@area44/oxlint-config`**: Shareable Oxlint linter configuration.
-
-## Toolchain & Configuration
-
-This project standardizes on the following tooling:
-- **Build / Bundling**: Powered by **Rolldown** (`rolldown.config.ts`), inlining local packages to generate static, self-contained ES Module (`.mjs`) and JSON (`.json`) configs.
-- **Code Quality**: Designed to align perfectly with the official `Oxc` guidelines.
+Both packages are fully self-contained and have zero runtime dependency on Ultracite.
 
 ## Development Workflows
 
 ### Building Configurations
-To build all packages using Rolldown:
+Build packages, JSON configs, and type definitions using Rolldown:
 ```bash
 pnpm build
 ```
 
+### Running Tests
+Run all fixture and package integration tests:
+```bash
+pnpm test
+```
+
 ### Formatting
-To format the repository:
+Format the repository:
 ```bash
 pnpm fmt
 ```
 
 ### Linting
-To lint the repository:
+Lint the repository:
 ```bash
 pnpm lint
 ```
+
+### Upstream Synchronization
+Sync upstream configurations from Ultracite:
+```bash
+pnpm upstream:sync
+```
+
+For detailed architectural guidelines and conventions, see [AGENTS.md](./AGENTS.md).

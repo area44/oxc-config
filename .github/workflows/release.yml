@@ -2,14 +2,15 @@ name: Release
 
 on:
   push:
-    tags:
-      - "v*"
+    branches:
+      - main
 
 concurrency: ${{ github.workflow }}-${{ github.ref }}
 
 permissions:
-  id-token: write # required for OIDC
   contents: write
+  pull-requests: write
+  id-token: write
 
 jobs:
   release:
@@ -31,8 +32,11 @@ jobs:
       - name: Install dependencies
         run: pnpm install --frozen-lockfile
 
-      - name: Build to auto-generate code
+      - name: Build configurations
         run: pnpm build
+
+      - name: Run tests
+        run: pnpm test
 
       - name: Create Release Pull Request or Publish to NPM
         id: changesets
@@ -40,3 +44,6 @@ jobs:
         with:
           version: pnpm version-packages
           publish: pnpm release
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+          NPM_CONFIG_PROVENANCE: true
