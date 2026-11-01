@@ -30,9 +30,20 @@ export const createFrameworkOverrides = (): Record<string, unknown>[] => {
   if (next.rules && Object.keys(next.rules).length > 0) {
     overrides.push({
       files: [
-        "**/app/**/{page,layout,template,error,loading,not-found,default}.{js,jsx,ts,tsx}",
+        "**/app/**/*.{js,jsx,ts,tsx}",
         "**/pages/**/*.{js,jsx,ts,tsx}",
+        "**/src/app/**/*.{js,jsx,ts,tsx}",
+        "**/src/pages/**/*.{js,jsx,ts,tsx}",
+        "**/components/**/*.{js,jsx,ts,tsx}",
+        "**/src/components/**/*.{js,jsx,ts,tsx}",
+        "**/hooks/**/*.{js,jsx,ts,tsx}",
+        "**/src/hooks/**/*.{js,jsx,ts,tsx}",
+        "**/lib/**/*.{js,jsx,ts,tsx}",
+        "**/src/lib/**/*.{js,jsx,ts,tsx}",
+        "**/middleware.{js,ts}",
+        "**/src/middleware.{js,ts}",
       ],
+      plugins: ["nextjs"],
       rules: {
         ...next.rules,
       },

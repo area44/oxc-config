@@ -6,7 +6,7 @@
     "build": "pnpm -r run build",
     "lint": "pnpm -r run lint",
     "fmt": "pnpm -r run fmt",
-    "test": "node --test tests/integration/*.test.ts tests/integration/*.test.js",
+    "test": "vitest run",
     "upstream:sync": "node scripts/sync-ultracite.ts",
     "version-packages": "changeset version",
     "release": "changeset publish"
@@ -19,7 +19,9 @@
     "@changesets/cli": "^3.0.3",
     "@types/node": "^26.6.6",
     "rolldown": "^1.2.16",
-    "typescript": "^7.0.2"
+    "typescript": "^7.0.2",
+    "ultracite": "8.1.0",
+    "vitest": "5.0.5"
   },
   "engines": {
     "node": ">=22.22.0"

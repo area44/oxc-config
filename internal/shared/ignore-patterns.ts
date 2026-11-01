@@ -6,6 +6,8 @@ export const ignorePatterns: string[] = [
   // Dependencies / VCS
   "**/node_modules",
   "**/.git",
+  "**/.github",
+  "**/.github/**",
 
   // Build and Framework output
   "**/dist",
@@ -52,7 +54,6 @@ export const ignorePatterns: string[] = [
   "**/.yarn",
   "**/oxlint.config.mjs",
   "**/oxfmt.config.mjs",
-  "**/*.d.ts",
 
   // Test coverage
   "**/coverage",

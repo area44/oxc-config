@@ -7,6 +7,8 @@
   "ignorePatterns": [
     "**/node_modules",
     "**/.git",
+    "**/.github",
+    "**/.github/**",
     "**/dist",
     "**/build",
     "**/out",
@@ -49,7 +51,6 @@
     "**/.yarn",
     "**/oxlint.config.mjs",
     "**/oxfmt.config.mjs",
-    "**/*.d.ts",
     "**/coverage",
     "**/.nyc_output",
     "**/.expo",

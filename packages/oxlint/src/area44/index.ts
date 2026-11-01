@@ -18,5 +18,4 @@ export const area44Plugins: string[] = [
   "jsx-a11y",
   "vitest",
   "vue",
-  "nextjs",
 ];

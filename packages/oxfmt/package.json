@@ -41,6 +41,6 @@
   "dependencies": {},
   "devDependencies": {},
   "peerDependencies": {
-    "oxfmt": ">=0.75.0"
+    "oxfmt": ">=0.75.0 <1"
   }
 }

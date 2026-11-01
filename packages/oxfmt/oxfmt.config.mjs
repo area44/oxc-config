@@ -2,6 +2,8 @@ const area44Options = {
 	ignorePatterns: [
 		"**/node_modules",
 		"**/.git",
+		"**/.github",
+		"**/.github/**",
 		"**/dist",
 		"**/build",
 		"**/out",
@@ -44,7 +46,6 @@ const area44Options = {
 		"**/.yarn",
 		"**/oxlint.config.mjs",
 		"**/oxfmt.config.mjs",
-		"**/*.d.ts",
 		"**/coverage",
 		"**/.nyc_output",
 		"**/.expo",
