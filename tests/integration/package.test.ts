@@ -10,12 +10,19 @@ describe("package integration, ignore patterns, and framework isolation", () => 
   const oxlintDir = path.join(repoRoot, "packages/oxlint");
   const oxfmtDir = path.join(repoRoot, "packages/oxfmt");
 
-  // Read tool versions dynamically from package.json
-  const rootPkg = JSON.parse(
-    fs.readFileSync(path.join(repoRoot, "package.json"), "utf8")
+  // Read tool versions dynamically from package metadata
+  const oxlintPkg = JSON.parse(
+    fs.readFileSync(path.join(oxlintDir, "package.json"), "utf8")
   );
-  const oxlintVersion = rootPkg.dependencies.oxlint.replace(/[\^~>=<]/g, "");
-  const oxfmtVersion = rootPkg.dependencies.oxfmt.replace(/[\^~>=<]/g, "");
+  const oxfmtPkg = JSON.parse(
+    fs.readFileSync(path.join(oxfmtDir, "package.json"), "utf8")
+  );
+  const oxlintVersion = (
+    oxlintPkg.peerDependencies?.oxlint || "1.90.0"
+  ).replace(/[\^~>=<]/g, "").trim().split(" ")[0];
+  const oxfmtVersion = (
+    oxfmtPkg.peerDependencies?.oxfmt || "0.75.0"
+  ).replace(/[\^~>=<]/g, "").trim().split(" ")[0];
 
   it("packages build, pack, and work independently in an isolated consumer project", () => {
     const oxlintPack = execSync("npm pack", { cwd: oxlintDir, encoding: "utf8" }).trim();
