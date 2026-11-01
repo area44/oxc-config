@@ -46,22 +46,10 @@ describe("framework overrides composition", () => {
     expect(vueOverride?.rules).toBeDefined();
   });
 
-  it("creates Next.js override matching routes and middleware without broad component/hook globs", () => {
+  it("does not contain any Next.js overrides or nextjs plugin", () => {
     const nextOverride = overrides.find(
-      (o) =>
-        Array.isArray(o.files) &&
-        o.files.includes("**/app/**/*.{js,jsx,ts,tsx}")
+      (o) => Array.isArray(o.plugins) && o.plugins.includes("nextjs")
     );
-    expect(nextOverride).toBeDefined();
-    expect(nextOverride?.plugins).toStrictEqual(["nextjs"]);
-    const files = (nextOverride?.files as string[]) || [];
-    expect(files).toStrictEqual([
-      "**/app/**/*.{js,jsx,ts,tsx}",
-      "**/pages/**/*.{js,jsx,ts,tsx}",
-      "**/src/app/**/*.{js,jsx,ts,tsx}",
-      "**/src/pages/**/*.{js,jsx,ts,tsx}",
-      "**/middleware.{js,ts}",
-      "**/src/middleware.{js,ts}",
-    ]);
+    expect(nextOverride).toBeUndefined();
   });
 });

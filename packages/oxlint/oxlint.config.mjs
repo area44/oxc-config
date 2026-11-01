@@ -61,9 +61,9 @@ const ignorePatterns$1 = [
   "**/next-env.d.ts",
   "**/worker-configuration.d.ts",
 ];
-// src/area44/index.ts
-const area44Rules = { "no-debugger": "error" };
-const area44Plugins = [
+// src/custom/index.ts
+const customRules = {};
+const customPlugins = [
   "eslint",
   "typescript",
   "unicorn",
@@ -986,33 +986,6 @@ var vitest_default = {
     },
   ],
 };
-// src/upstream/next.json
-var next_default = {
-  plugins: ["nextjs"],
-  rules: {
-    "nextjs/google-font-display": "error",
-    "nextjs/google-font-preconnect": "error",
-    "nextjs/inline-script-id": "error",
-    "nextjs/next-script-for-ga": "error",
-    "nextjs/no-assign-module-variable": "error",
-    "nextjs/no-async-client-component": "error",
-    "nextjs/no-before-interactive-script-outside-document": "error",
-    "nextjs/no-css-tags": "error",
-    "nextjs/no-document-import-in-page": "error",
-    "nextjs/no-duplicate-head": "error",
-    "nextjs/no-head-element": "error",
-    "nextjs/no-head-import-in-document": "error",
-    "nextjs/no-html-link-for-pages": "error",
-    "nextjs/no-img-element": "error",
-    "nextjs/no-page-custom-font": "error",
-    "nextjs/no-script-component-in-head": "error",
-    "nextjs/no-styled-jsx-in-document": "error",
-    "nextjs/no-sync-scripts": "error",
-    "nextjs/no-title-in-document-head": "error",
-    "nextjs/no-typos": "error",
-    "nextjs/no-unwanted-polyfillio": "error",
-  },
-};
 // src/overrides/frameworks.ts
 const createFrameworkOverrides = () => {
   const overrides = [];
@@ -1028,19 +1001,6 @@ const createFrameworkOverrides = () => {
       files: ["**/*.vue"],
       rules: { ...vue_default.rules },
     });
-  if (next_default.rules && Object.keys(next_default.rules).length > 0)
-    overrides.push({
-      files: [
-        "**/app/**/*.{js,jsx,ts,tsx}",
-        "**/pages/**/*.{js,jsx,ts,tsx}",
-        "**/src/app/**/*.{js,jsx,ts,tsx}",
-        "**/src/pages/**/*.{js,jsx,ts,tsx}",
-        "**/middleware.{js,ts}",
-        "**/src/middleware.{js,ts}",
-      ],
-      plugins: ["nextjs"],
-      rules: { ...next_default.rules },
-    });
   return overrides;
 };
 // src/compose.ts
@@ -1050,11 +1010,11 @@ const composeOxlintConfig = () => {
     : [];
   const frameworkOverrides = createFrameworkOverrides();
   const plugins = [
-    ...new Set([...(core_default.plugins || []), ...area44Plugins]),
+    ...new Set([...(core_default.plugins || []), ...customPlugins]),
   ];
   const rules = {
     ...core_default.rules,
-    ...area44Rules,
+    ...customRules,
   };
   const overrides = [...upstreamOverrides, ...frameworkOverrides];
   return {

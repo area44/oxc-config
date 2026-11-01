@@ -1,4 +1,4 @@
-import { next, react, vitest, vue } from "../upstream/index";
+import { react, vitest, vue } from "../upstream/index";
 
 export const createFrameworkOverrides = (): Record<string, unknown>[] => {
   const overrides: Record<string, unknown>[] = [];
@@ -26,26 +26,6 @@ export const createFrameworkOverrides = (): Record<string, unknown>[] => {
       files: ["**/*.vue"],
       rules: {
         ...vue.rules,
-      },
-    });
-  }
-
-  // Next.js overrides:
-  // Strictly scoped to Next.js route, page, and middleware files to prevent
-  // false positives on generic React projects (e.g. components/, hooks/, lib/).
-  if (next.rules && Object.keys(next.rules).length > 0) {
-    overrides.push({
-      files: [
-        "**/app/**/*.{js,jsx,ts,tsx}",
-        "**/pages/**/*.{js,jsx,ts,tsx}",
-        "**/src/app/**/*.{js,jsx,ts,tsx}",
-        "**/src/pages/**/*.{js,jsx,ts,tsx}",
-        "**/middleware.{js,ts}",
-        "**/src/middleware.{js,ts}",
-      ],
-      plugins: ["nextjs"],
-      rules: {
-        ...next.rules,
       },
     });
   }

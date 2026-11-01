@@ -1,4 +1,4 @@
-const area44Options = {
+const defaultFormattingOptions = {
 	ignorePatterns: [
 		"**/node_modules",
 		"**/.git",
@@ -176,7 +176,7 @@ var oxfmt_default = {
 const composeOxfmtConfig = () => ({
 	$schema: "./node_modules/oxfmt/configuration_schema.json",
 	...oxfmt_default,
-	...area44Options
+	...defaultFormattingOptions
 });
 // src/index.ts
 const config = composeOxfmtConfig();

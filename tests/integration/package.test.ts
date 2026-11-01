@@ -16,24 +16,16 @@ describe("package integration, ignore patterns, and framework isolation", () => 
   const oxfmtPkg = JSON.parse(
     fs.readFileSync(path.join(oxfmtDir, "package.json"), "utf-8")
   );
-  const [oxlintVersion] = (oxlintPkg.peerDependencies?.oxlint || "1.90.0")
-    .replaceAll(/[\^~>=<]/gu, "")
-    .trim()
-    .split(" ");
-  const [oxfmtVersion] = (oxfmtPkg.peerDependencies?.oxfmt || "0.75.0")
-    .replaceAll(/[\^~>=<]/gu, "")
-    .trim()
-    .split(" ");
+  const [oxlintVersion] = (
+    oxlintPkg.peerDependencies?.oxlint || "1.90.0"
+  ).replaceAll(/[\^~>=<]/gu, "").trim().split(" ");
+  const [oxfmtVersion] = (
+    oxfmtPkg.peerDependencies?.oxfmt || "0.75.0"
+  ).replaceAll(/[\^~>=<]/gu, "").trim().split(" ");
 
   it("packages build, pack, and work independently in an isolated consumer project", () => {
-    const oxlintPack = execSync("npm pack", {
-      cwd: oxlintDir,
-      encoding: "utf-8",
-    }).trim();
-    const oxfmtPack = execSync("npm pack", {
-      cwd: oxfmtDir,
-      encoding: "utf-8",
-    }).trim();
+    const oxlintPack = execSync("npm pack", { cwd: oxlintDir, encoding: "utf-8" }).trim();
+    const oxfmtPack = execSync("npm pack", { cwd: oxfmtDir, encoding: "utf-8" }).trim();
 
     const oxlintTarball = path.join(oxlintDir, oxlintPack);
     const oxfmtTarball = path.join(oxfmtDir, oxfmtPack);
@@ -72,10 +64,7 @@ if (!config || !Array.isArray(config.plugins)) {
 console.log("Consumer oxlint plugins count:", config.plugins.length);
 `;
       fs.writeFileSync(path.join(tmpDir, "test-oxlint.mjs"), testOxlintJs);
-      const oxlintOut = execSync("node test-oxlint.mjs", {
-        cwd: tmpDir,
-        encoding: "utf-8",
-      });
+      const oxlintOut = execSync("node test-oxlint.mjs", { cwd: tmpDir, encoding: "utf-8" });
       expect(oxlintOut).toMatch(/Consumer oxlint plugins count:/u);
 
       // 2. Verify default oxfmt ESM import and spread usage
@@ -88,24 +77,17 @@ if (!finalConfig || !finalConfig.sortImports) {
 console.log("Consumer oxfmt tabWidth:", finalConfig.tabWidth);
 `;
       fs.writeFileSync(path.join(tmpDir, "test-oxfmt.mjs"), testOxfmtJs);
-      const oxfmtOut = execSync("node test-oxfmt.mjs", {
-        cwd: tmpDir,
-        encoding: "utf-8",
-      });
+      const oxfmtOut = execSync("node test-oxfmt.mjs", { cwd: tmpDir, encoding: "utf-8" });
       expect(oxfmtOut).toMatch(/Consumer oxfmt tabWidth: 2/u);
 
-      // 3. Verify .oxlintrc.json and .oxfmtrc.json are valid and copyable
+      // 3. Verify .oxlintrc.json and .oxfmtrc.json are valid and usable
       fs.writeFileSync(
         path.join(tmpDir, ".oxlintrc.json"),
-        fs.readFileSync(
-          path.join(tmpDir, "node_modules/@area44/oxlint/.oxlintrc.json")
-        )
+        fs.readFileSync(path.join(tmpDir, "node_modules/@area44/oxlint/.oxlintrc.json"))
       );
       fs.writeFileSync(
         path.join(tmpDir, ".oxfmtrc.json"),
-        fs.readFileSync(
-          path.join(tmpDir, "node_modules/@area44/oxfmt/.oxfmtrc.json")
-        )
+        fs.readFileSync(path.join(tmpDir, "node_modules/@area44/oxfmt/.oxfmtrc.json"))
       );
 
       // 4. Test .github ignore behavior in both Oxlint and Oxfmt
@@ -120,13 +102,10 @@ console.log("Consumer oxfmt tabWidth:", finalConfig.tabWidth);
       );
 
       // Oxlint should ignore .github/
-      const oxlintFiles = execSync(
-        "npx oxlint -c .oxlintrc.json --debug=files",
-        {
-          cwd: tmpDir,
-          encoding: "utf-8",
-        }
-      );
+      const oxlintFiles = execSync("npx oxlint -c .oxlintrc.json --debug=files", {
+        cwd: tmpDir,
+        encoding: "utf-8",
+      });
       expect(oxlintFiles).not.toMatch(/\.github/u);
 
       // Oxfmt should ignore .github/
@@ -156,50 +135,39 @@ console.log("Consumer oxfmt tabWidth:", finalConfig.tabWidth);
         "export type SchemaType = number;\n"
       );
 
-      const oxlintFilesTypes = execSync(
-        "npx oxlint -c .oxlintrc.json --debug=files",
-        {
-          cwd: tmpDir,
-          encoding: "utf-8",
-        }
-      );
+      const oxlintFilesTypes = execSync("npx oxlint -c .oxlintrc.json --debug=files", {
+        cwd: tmpDir,
+        encoding: "utf-8",
+      });
       expect(oxlintFilesTypes).toMatch(/types\.d\.ts/u);
       expect(oxlintFilesTypes).not.toMatch(/schema\.d\.ts/u);
 
-      // 6. Test Next.js rules active in route and application files
+      // 6. Test that conventional framework directories (app, pages, components, hooks, lib)
+      // do NOT trigger Next.js rules
       fs.mkdirSync(path.join(tmpDir, "src/app"), { recursive: true });
       fs.writeFileSync(
         path.join(tmpDir, "src/app/page.tsx"),
         "export const Page = () => <img src='/img.png' alt='test' />;\n"
       );
-      let nextError = false;
-      try {
-        execSync("npx oxlint -c .oxlintrc.json src/app/page.tsx", {
-          cwd: tmpDir,
-          encoding: "utf-8",
-        });
-      } catch (error: unknown) {
-        const execError = error as { stdout?: string };
-        nextError = true;
-        expect(execError.stdout).toMatch(/next\(no-img-element\)/u);
-      }
-      expect(nextError).toBeTruthy();
-
-      // 7. Test generic React projects outside Next.js paths do NOT receive Next.js rules
-      fs.mkdirSync(path.join(tmpDir, "external-react"), { recursive: true });
+      fs.mkdirSync(path.join(tmpDir, "src/components"), { recursive: true });
       fs.writeFileSync(
-        path.join(tmpDir, "external-react/generic-button.tsx"),
+        path.join(tmpDir, "src/components/generic-button.tsx"),
         "export const GenericButton = () => <img src='/img.png' alt='test' />;\n"
       );
-      const reactOut = execSync(
-        "npx oxlint -c .oxlintrc.json external-react/generic-button.tsx",
-        {
-          cwd: tmpDir,
-          encoding: "utf-8",
-        }
-      );
+
+      const appOut = execSync("npx oxlint -c .oxlintrc.json src/app/page.tsx", {
+        cwd: tmpDir,
+        encoding: "utf-8",
+      });
+      expect(appOut).toMatch(/0 errors/u);
+      expect(appOut).not.toMatch(/next\(/u);
+
+      const reactOut = execSync("npx oxlint -c .oxlintrc.json src/components/generic-button.tsx", {
+        cwd: tmpDir,
+        encoding: "utf-8",
+      });
       expect(reactOut).toMatch(/0 errors/u);
-      expect(reactOut).not.toMatch(/next\(no-img-element\)/u);
+      expect(reactOut).not.toMatch(/next\(/u);
     } finally {
       fs.rmSync(tmpDir, { force: true, recursive: true });
       fs.rmSync(oxlintTarball, { force: true });

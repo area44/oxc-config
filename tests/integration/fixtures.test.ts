@@ -37,51 +37,41 @@ describe("oxlint and oxfmt fixtures", () => {
     expect(failedOutput).toMatch(/button-has-type/u);
   });
 
-  it("generic React fixtures with common directories do not receive Next.js diagnostics", () => {
+  it("generic React fixtures with conventional directories do not receive Next.js diagnostics", () => {
     const genericDir = path.join(
       repoRoot,
       "tests/fixtures/frameworks/generic-react"
     );
     fs.copyFileSync(oxlintrc, path.join(genericDir, ".oxlintrc.json"));
     try {
-      const files = "components/button.tsx hooks/use-status.ts lib/format.ts";
+      const files =
+        "app/page.tsx components/button.tsx hooks/use-status.ts lib/format.ts pages/generic-page.tsx";
       const out = execSync(`npx oxlint -c .oxlintrc.json ${files}`, {
         cwd: genericDir,
         encoding: "utf-8",
       });
       expect(out).toMatch(/0 errors/u);
-      expect(out).not.toMatch(/next\(no-img-element\)/u);
+      expect(out).not.toMatch(/next\(/u);
     } finally {
       fs.unlinkSync(path.join(genericDir, ".oxlintrc.json"));
     }
   });
 
-  it("nextjs fixtures correctly enforce Next.js rules in app and pages", () => {
-    const nextDir = path.join(repoRoot, "tests/fixtures/frameworks/nextjs");
-    fs.copyFileSync(oxlintrc, path.join(nextDir, ".oxlintrc.json"));
+  it("remix-like fixtures with app/ routes do not receive Next.js diagnostics", () => {
+    const remixDir = path.join(repoRoot, "tests/fixtures/frameworks/remix");
+    fs.copyFileSync(oxlintrc, path.join(remixDir, ".oxlintrc.json"));
     try {
-      let appOutput = "";
-      try {
-        execSync("npx oxlint -c .oxlintrc.json app/page.tsx", {
-          cwd: nextDir,
-          encoding: "utf-8",
-        });
-      } catch (error: unknown) {
-        const execError = error as { stdout?: string; stderr?: string };
-        appOutput = `${execError.stdout || ""} ${execError.stderr || ""}`;
-      }
-      expect(appOutput).toMatch(/next\(no-img-element\)/u);
-
-      const middlewareOut = execSync(
-        "npx oxlint -c .oxlintrc.json middleware.ts",
+      const out = execSync(
+        "npx oxlint -c .oxlintrc.json app/routes/_index.tsx",
         {
-          cwd: nextDir,
+          cwd: remixDir,
           encoding: "utf-8",
         }
       );
-      expect(middlewareOut).toMatch(/0 errors/u);
+      expect(out).toMatch(/0 errors/u);
+      expect(out).not.toMatch(/next\(/u);
     } finally {
-      fs.unlinkSync(path.join(nextDir, ".oxlintrc.json"));
+      fs.unlinkSync(path.join(remixDir, ".oxlintrc.json"));
     }
   });
 
