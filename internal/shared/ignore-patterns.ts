@@ -1,6 +1,5 @@
 /**
  * Canonical ignore patterns shared across linters and formatters.
- * AREA44 standard ignore list.
  */
 export const ignorePatterns: string[] = [
   // Dependencies / VCS

@@ -2,4 +2,7 @@
 "@area44/oxfmt": minor
 ---
 
-Introduce `@area44/oxfmt` package baseline with Ultracite 8.1.0 upstream integration and AREA44 formatting preferences. This replaces legacy `@area44/oxfmt-config`.
+Synchronize `@area44/oxfmt` with Ultracite 8.1.0 and streamline configuration:
+- Neutralize internal configuration branding and option identifiers.
+- Update installation documentation for JS/TS and JSON formats.
+- Retain structured import sorting order and 2-space formatting.

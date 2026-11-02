@@ -1,7 +1,7 @@
 // oxlint-disable unicorn/prefer-export-from
 import { ignorePatterns } from "@shared";
 
-export const area44SortImports = {
+export const defaultSortImports = {
   groups: [
     "type-import",
     ["value-builtin", "value-external"],
@@ -16,9 +16,9 @@ export const area44SortImports = {
   order: "asc",
 };
 
-export const area44Options = {
+export const defaultFormattingOptions = {
   ignorePatterns,
-  sortImports: area44SortImports,
+  sortImports: defaultSortImports,
   tabWidth: 2,
   useTabs: false,
 };

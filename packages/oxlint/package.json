@@ -1,7 +1,7 @@
 {
   "name": "@area44/oxlint",
   "version": "0.3.0",
-  "description": "Comprehensive Ultracite-based shareable Oxlint configuration for AREA44",
+  "description": "Comprehensive Ultracite-based shareable Oxlint configuration",
   "keywords": [
     "config",
     "lint",

@@ -1,6 +1,6 @@
 # @area44/oxc-config
 
-AREA44's canonical shareable configurations for `Oxlint` and `Oxfmt`, based on Ultracite.
+Canonical shareable configurations for `Oxlint` and `Oxfmt`, based on Ultracite.
 
 ## Packages
 
@@ -9,6 +9,48 @@ This monorepo publishes exactly two independent npm packages:
 - **`@area44/oxfmt`**: Comprehensive, production-ready Oxfmt configuration.
 
 Both packages are fully self-contained and have zero runtime dependency on Ultracite.
+
+## Installation & Usage
+
+### `@area44/oxlint`
+
+```bash
+pnpm add -D @area44/oxlint oxlint
+```
+
+In `oxlint.config.mjs`:
+```javascript
+import config from "@area44/oxlint";
+
+export default config;
+```
+
+Or via `.oxlintrc.json`:
+```json
+{
+  "extends": ["./node_modules/@area44/oxlint/.oxlintrc.json"]
+}
+```
+
+### `@area44/oxfmt`
+
+```bash
+pnpm add -D @area44/oxfmt oxfmt
+```
+
+In `oxfmt.config.mjs`:
+```javascript
+import config from "@area44/oxfmt";
+
+export default {
+  ...config,
+};
+```
+
+Or via CLI flag referencing the packaged JSON config:
+```bash
+oxfmt -c ./node_modules/@area44/oxfmt/.oxfmtrc.json
+```
 
 ## Development Workflows
 

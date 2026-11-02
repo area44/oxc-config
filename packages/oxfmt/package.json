@@ -1,7 +1,7 @@
 {
   "name": "@area44/oxfmt",
   "version": "0.3.0",
-  "description": "Comprehensive Ultracite-based shareable Oxfmt configuration for AREA44",
+  "description": "Comprehensive Ultracite-based shareable Oxfmt configuration",
   "keywords": [
     "config",
     "formatter",

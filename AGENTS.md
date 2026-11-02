@@ -8,7 +8,7 @@ This repository is a pnpm monorepo maintaining and publishing exactly two indepe
 1. **`@area44/oxlint`**: A comprehensive, production-ready shareable configuration for Oxlint.
 2. **`@area44/oxfmt`**: A comprehensive, production-ready shareable configuration for Oxfmt.
 
-Both packages are based on upstream configurations from **Ultracite**, customized and composed with AREA44 conventions. At consumer runtime, both packages are completely self-contained and have zero runtime dependency on Ultracite.
+Both packages are based on upstream configurations from **Ultracite**, customized and composed with canonical project conventions. At consumer runtime, both packages are completely self-contained and have zero runtime dependency on Ultracite.
 
 ## Architecture
 
@@ -17,8 +17,8 @@ packages/
   oxlint/
     src/
       upstream/       # Synchronized snapshots from Ultracite
-      area44/         # AREA44 custom rules and plugins
-      overrides/      # Framework-specific overrides (React, Vue, Vitest, Next.js)
+      custom/         # Project custom rules and plugins
+      overrides/      # Framework-specific overrides (React, Vue, Vitest)
       compose.ts      # Merging and composition logic
       index.ts        # Source entry point
     package.json
@@ -28,7 +28,7 @@ packages/
   oxfmt/
     src/
       upstream/       # Synchronized snapshots from Ultracite
-      area44/         # AREA44 formatting preferences & import sorting
+      custom/         # Formatting preferences & import sorting
       compose.ts      # Oxfmt composition logic
       index.ts        # Source entry point
     package.json
@@ -72,7 +72,7 @@ Or use the pre-generated JSON configuration:
   "extends": ["./node_modules/@area44/oxlint/.oxlintrc.json"]
 }
 ```
-No separate framework imports (such as `@area44/oxlint/react` or `@area44/oxlint/vue`) are exposed. React, Vue, Vitest, and Next.js rules are integrated automatically via file-specific `overrides`.
+No separate framework imports (such as `@area44/oxlint/react` or `@area44/oxlint/vue`) are exposed. React, Vue, and Vitest rules are integrated automatically via file-specific `overrides`.
 
 ### `@area44/oxfmt`
 Consumers spread the single default configuration:
@@ -87,10 +87,10 @@ Or reference `.oxfmtrc.json` directly via the `-c` CLI flag. Oxfmt does not use 
 
 ---
 
-## AREA44 Conventions & Upstream Customizations
+## Conventions & Upstream Customizations
 
 - **Ignore Patterns**: Canonical ignore list defined in `internal/shared/ignore-patterns.ts` covers build outputs (`dist`, `.next`, `.turbo`, etc.), generated artifacts, mobile build directories, lockfiles, and test coverage.
-- **Import Sorting**: Oxfmt import sorting follows AREA44 group order:
+- **Import Sorting**: Oxfmt import sorting follows group order:
   1. `type-import`
   2. `["value-builtin", "value-external"]`
   3. `type-internal`
@@ -99,7 +99,7 @@ Or reference `.oxfmtrc.json` directly via the `-c` CLI flag. Oxfmt does not use 
   6. `["value-parent", "value-sibling", "value-index"]`
   7. `unknown`
 - **Formatting**: 2-space indentation (`tabWidth: 2`), `useTabs: false`, and standard semicolons.
-- **Plugins**: Comprehensive native Oxlint plugins enabled: `eslint`, `typescript`, `unicorn`, `oxc`, `import`, `jsdoc`, `node`, `promise`, `react`, `react-perf`, `jsx-a11y`, `vitest`, `vue`, `nextjs`.
+- **Plugins**: Native Oxlint plugins enabled: `eslint`, `typescript`, `unicorn`, `oxc`, `import`, `jsdoc`, `node`, `promise`, `react`, `react-perf`, `jsx-a11y`, `vitest`, `vue`.
 
 ---
 
@@ -130,7 +130,7 @@ pnpm upstream:sync
 ```
 This script (`scripts/sync-ultracite.ts`):
 1. Reads the installed Ultracite package metadata (`version` and `gitHead`).
-2. Imports upstream presets for core, react, vue, vitest, next, and oxfmt.
+2. Imports upstream presets for core, react, vue, vitest, and oxfmt.
 3. Updates snapshots in `packages/oxlint/src/upstream/` and `packages/oxfmt/src/upstream/`.
 4. Saves synchronization metadata to `upstream-meta.json`.
 
