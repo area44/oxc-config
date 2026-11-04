@@ -5,8 +5,8 @@ This file is the single source of truth for repository architecture, conventions
 ## Repository Purpose
 
 This repository is a pnpm monorepo maintaining and publishing exactly two independent npm packages:
-1. **`@area44/oxlint`**: A comprehensive, production-ready shareable configuration for Oxlint.
-2. **`@area44/oxfmt`**: A comprehensive, production-ready shareable configuration for Oxfmt.
+1. **`@area44/oxlint-config`**: A comprehensive, production-ready shareable configuration for Oxlint.
+2. **`@area44/oxfmt-config`**: A comprehensive, production-ready shareable configuration for Oxfmt.
 
 Both packages are based on upstream configurations from **Ultracite**, customized and composed with canonical project conventions. At consumer runtime, both packages are completely self-contained and have zero runtime dependency on Ultracite.
 
@@ -59,25 +59,25 @@ scripts/
 
 ## Package APIs
 
-### `@area44/oxlint`
+### `@area44/oxlint-config`
 Consumers import a single default configuration:
 ```javascript
-import config from "@area44/oxlint";
+import config from "@area44/oxlint-config";
 
 export default config;
 ```
 Or use the pre-generated JSON configuration:
 ```json
 {
-  "extends": ["./node_modules/@area44/oxlint/.oxlintrc.json"]
+  "extends": ["./node_modules/@area44/oxlint-config/.oxlintrc.json"]
 }
 ```
-No separate framework imports (such as `@area44/oxlint/react` or `@area44/oxlint/vue`) are exposed. React, Vue, and Vitest rules are integrated automatically via file-specific `overrides`.
+No separate framework imports (such as `@area44/oxlint-config/react` or `@area44/oxlint-config/vue`) are exposed. React, Vue, and Vitest rules are integrated automatically via file-specific `overrides`.
 
-### `@area44/oxfmt`
+### `@area44/oxfmt-config`
 Consumers spread the single default configuration:
 ```javascript
-import config from "@area44/oxfmt";
+import config from "@area44/oxfmt-config";
 
 export default {
   ...config,
@@ -140,8 +140,8 @@ After syncing, rebuild (`pnpm build`) and run tests (`pnpm test`) to ensure comp
 
 ## Releases & Changesets
 
-Changesets manage independent versioning and releases for `@area44/oxlint` and `@area44/oxfmt`.
+Changesets manage independent versioning and releases for `@area44/oxlint-config` and `@area44/oxfmt-config`.
 - To create a changeset: `pnpm changeset`
 - Versioning script: `pnpm version-packages`
 - Release script: `pnpm release`
-- Independent releases ensure Oxlint changes only bump `@area44/oxlint`, and Oxfmt changes only bump `@area44/oxfmt`.
+- Independent releases ensure Oxlint changes only bump `@area44/oxlint-config`, and Oxfmt changes only bump `@area44/oxfmt-config`.

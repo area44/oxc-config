@@ -5,22 +5,22 @@ Canonical shareable configurations for `Oxlint` and `Oxfmt`, based on Ultracite.
 ## Packages
 
 This monorepo publishes exactly two independent npm packages:
-- **`@area44/oxlint`**: Comprehensive, production-ready Oxlint configuration.
-- **`@area44/oxfmt`**: Comprehensive, production-ready Oxfmt configuration.
+- **`@area44/oxlint-config`**: Comprehensive, production-ready Oxlint configuration.
+- **`@area44/oxfmt-config`**: Comprehensive, production-ready Oxfmt configuration.
 
 Both packages are fully self-contained and have zero runtime dependency on Ultracite.
 
 ## Installation & Usage
 
-### `@area44/oxlint`
+### `@area44/oxlint-config`
 
 ```bash
-pnpm add -D @area44/oxlint oxlint
+pnpm add -D @area44/oxlint-config oxlint
 ```
 
 In `oxlint.config.mjs`:
 ```javascript
-import config from "@area44/oxlint";
+import config from "@area44/oxlint-config";
 
 export default config;
 ```
@@ -28,19 +28,19 @@ export default config;
 Or via `.oxlintrc.json`:
 ```json
 {
-  "extends": ["./node_modules/@area44/oxlint/.oxlintrc.json"]
+  "extends": ["./node_modules/@area44/oxlint-config/.oxlintrc.json"]
 }
 ```
 
-### `@area44/oxfmt`
+### `@area44/oxfmt-config`
 
 ```bash
-pnpm add -D @area44/oxfmt oxfmt
+pnpm add -D @area44/oxfmt-config oxfmt
 ```
 
 In `oxfmt.config.mjs`:
 ```javascript
-import config from "@area44/oxfmt";
+import config from "@area44/oxfmt-config";
 
 export default {
   ...config,
@@ -49,7 +49,7 @@ export default {
 
 Or via CLI flag referencing the packaged JSON config:
 ```bash
-oxfmt -c ./node_modules/@area44/oxfmt/.oxfmtrc.json
+oxfmt -c ./node_modules/@area44/oxfmt-config/.oxfmtrc.json
 ```
 
 ## Development Workflows
