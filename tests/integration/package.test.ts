@@ -57,7 +57,7 @@ describe("package integration, ignore patterns, and framework isolation", () => 
 
       // 1. Verify default oxlint ESM import
       const testOxlintJs = `
-import config from "@area44/oxlint";
+import config from "@area44/oxlint-config";
 if (!config || !Array.isArray(config.plugins)) {
   throw new Error("Invalid oxlint config export");
 }
@@ -69,7 +69,7 @@ console.log("Consumer oxlint plugins count:", config.plugins.length);
 
       // 2. Verify default oxfmt ESM import and spread usage
       const testOxfmtJs = `
-import config from "@area44/oxfmt";
+import config from "@area44/oxfmt-config";
 const finalConfig = { ...config };
 if (!finalConfig || !finalConfig.sortImports) {
   throw new Error("Invalid oxfmt config export");
@@ -83,11 +83,11 @@ console.log("Consumer oxfmt tabWidth:", finalConfig.tabWidth);
       // 3. Verify .oxlintrc.json and .oxfmtrc.json are valid and usable
       fs.writeFileSync(
         path.join(tmpDir, ".oxlintrc.json"),
-        fs.readFileSync(path.join(tmpDir, "node_modules/@area44/oxlint/.oxlintrc.json"))
+        fs.readFileSync(path.join(tmpDir, "node_modules/@area44/oxlint-config/.oxlintrc.json"))
       );
       fs.writeFileSync(
         path.join(tmpDir, ".oxfmtrc.json"),
-        fs.readFileSync(path.join(tmpDir, "node_modules/@area44/oxfmt/.oxfmtrc.json"))
+        fs.readFileSync(path.join(tmpDir, "node_modules/@area44/oxfmt-config/.oxfmtrc.json"))
       );
 
       // 4. Test .github ignore behavior in both Oxlint and Oxfmt

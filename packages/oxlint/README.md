@@ -1,21 +1,21 @@
-# @area44/oxlint
+# @area44/oxlint-config
 
 Comprehensive Ultracite-based shareable Oxlint configuration.
 
 ## Installation
 
-Install `@area44/oxlint` and `oxlint` as development dependencies:
+Install `@area44/oxlint-config` and `oxlint` as development dependencies:
 
 ```bash
-pnpm add -D @area44/oxlint oxlint
+pnpm add -D @area44/oxlint-config oxlint
 ```
 
 or with npm / yarn:
 
 ```bash
-npm install --save-dev @area44/oxlint oxlint
+npm install --save-dev @area44/oxlint-config oxlint
 # or
-yarn add -D @area44/oxlint oxlint
+yarn add -D @area44/oxlint-config oxlint
 ```
 
 ## Configuration
@@ -25,7 +25,7 @@ yarn add -D @area44/oxlint oxlint
 Create an `oxlint.config.mjs` (or `.ts`) file in the root of your project:
 
 ```javascript
-import config from "@area44/oxlint";
+import config from "@area44/oxlint-config";
 
 export default config;
 ```
@@ -42,7 +42,7 @@ Create an `.oxlintrc.json` file in the root of your project:
 
 ```json
 {
-  "extends": ["./node_modules/@area44/oxlint/.oxlintrc.json"]
+  "extends": ["./node_modules/@area44/oxlint-config/.oxlintrc.json"]
 }
 ```
 

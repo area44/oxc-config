@@ -1,21 +1,21 @@
-# @area44/oxfmt
+# @area44/oxfmt-config
 
 Comprehensive Ultracite-based shareable Oxfmt configuration.
 
 ## Installation
 
-Install `@area44/oxfmt` and `oxfmt` as development dependencies:
+Install `@area44/oxfmt-config` and `oxfmt` as development dependencies:
 
 ```bash
-pnpm add -D @area44/oxfmt oxfmt
+pnpm add -D @area44/oxfmt-config oxfmt
 ```
 
 or with npm / yarn:
 
 ```bash
-npm install --save-dev @area44/oxfmt oxfmt
+npm install --save-dev @area44/oxfmt-config oxfmt
 # or
-yarn add -D @area44/oxfmt oxfmt
+yarn add -D @area44/oxfmt-config oxfmt
 ```
 
 ## Configuration
@@ -25,7 +25,7 @@ yarn add -D @area44/oxfmt oxfmt
 Create an `oxfmt.config.mjs` (or `.ts`) file in the root of your project:
 
 ```javascript
-import config from "@area44/oxfmt";
+import config from "@area44/oxfmt-config";
 
 export default {
   ...config,
@@ -43,13 +43,13 @@ oxfmt -c oxfmt.config.mjs
 Oxfmt supports JSON configuration via `.oxfmtrc.json`. Because Oxfmt does not have an `extends` property in its configuration schema, copy or reference the provided `.oxfmtrc.json`:
 
 ```bash
-oxfmt -c ./node_modules/@area44/oxfmt/.oxfmtrc.json
+oxfmt -c ./node_modules/@area44/oxfmt-config/.oxfmtrc.json
 ```
 
 Or copy the pre-compiled `.oxfmtrc.json` from the package into your project root:
 
 ```bash
-cp ./node_modules/@area44/oxfmt/.oxfmtrc.json .oxfmtrc.json
+cp ./node_modules/@area44/oxfmt-config/.oxfmtrc.json .oxfmtrc.json
 ```
 
 _Note on JSON Configuration:_ Unlike Oxlint, Oxfmt does not resolve an `extends` property. For composable shared configs in JavaScript/TypeScript, use the object spread syntax (`{ ...config }`).
