@@ -41,6 +41,6 @@
   "dependencies": {},
   "devDependencies": {},
   "peerDependencies": {
-    "oxlint": "^1.92.0"
+    "oxlint": "^1.93.0"
   }
 }
