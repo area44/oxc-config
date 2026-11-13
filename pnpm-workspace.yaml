@@ -1,3 +1,5 @@
+packages:
+  - "packages/*"
 autoDedupe: true
 minimumReleaseAge: 0
 shellEmulator: true
